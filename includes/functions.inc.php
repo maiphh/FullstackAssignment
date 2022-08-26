@@ -58,6 +58,36 @@ function usernameExist($username) {
 return false;
 }
 
+function bnameExist($bname) {
+  $handle = fopen('C:\xampp\htdocs\Fullstack\database\accounts.db','r');
+  while(!feof($handle)) {
+    $line = fgetcsv($handle);
+    if(is_array($line)){
+    if($line[8]=='V') {
+      if($line[5]==$bname){
+        return true;
+      }
+    }
+  }
+}
+return false;
+}
+
+function baddressExist($baddress) {
+  $handle = fopen('C:\xampp\htdocs\Fullstack\database\accounts.db','r');
+  while(!feof($handle)) {
+    $line = fgetcsv($handle);
+    if(is_array($line)){
+    if($line[8]=='V') {
+      if($line[6]==$baddress){
+        return true;
+      }
+    }
+  }
+}
+return false;
+}
+
 function uploadImage($profilepic,$id) {
   $name = explode('.',$profilepic['name']);
   $extension = end($name);
@@ -124,4 +154,11 @@ function readUsers() {
     $users[] = $user;
   }
   return $users;
+}
+
+function emptyInput($data) {
+  if(empty($data)) {
+    return true;
+  }
+  return false;
 }

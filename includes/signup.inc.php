@@ -38,9 +38,10 @@ if(isset($_POST["customersubmit"])) {
   }
 
   createCustomer($id,$username,$pwd,$profilepic,$address);
+  header('Location: ../login.php');
 }
 
-else if(isset($_POST["vendorsubmit"])) {
+elseif(isset($_POST["vendorsubmit"])) {
   $username = $_POST['username'];
   $pwd = $_POST['pwd'];
   $pwdrp= $_POST['pwdrp'];
@@ -78,10 +79,21 @@ else if(isset($_POST["vendorsubmit"])) {
     exit();
   }
 
+  if(bnameExist($bname)!==false) {
+    header("location:../signup.vendors.php?error=bnameExisted");
+    exit();
+  }
+
+  if(baddressExist($baddress)!==false) {
+    header("location:../signup.vendors.php?error=baddressExisted");
+    exit();
+  }
+
   createVendor($id,$username,$pwd,$profilepic,$bname,$baddress);
+  header('Location: ../login.php');
 }
 
-else if(isset($_POST["shippersubmit"])) {
+elseif(isset($_POST["shippersubmit"])) {
   $username = $_POST['username'];
   $pwd = $_POST['pwd'];
   $pwdrp= $_POST['pwdrp'];
@@ -109,6 +121,7 @@ else if(isset($_POST["shippersubmit"])) {
   }
 
   createShipper($id,$username,$pwd,$profilepic,$hub);
+  header('Location: ../login.php');
 }
 
 else {

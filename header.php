@@ -1,3 +1,7 @@
+<?php
+session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -17,9 +21,28 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="login.php">Login</a>
-            <a class="nav-link" href="signup.php">Signup</a>
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <?php
+            if(isset($_SESSION['type'])) {
+              if($_SESSION['type']=='C'){
+                echo '<a class="nav-link" href="myAccount.php">My Account</a>';
+                echo '<a class="nav-link" href="includes/logout.inc.php">Logout</a>';
+              }
+              elseif($_SESSION['type']=='V'){
+                echo '<a class="nav-link" href="viewProduct.php">View My Product</a>';
+                echo '<a class="nav-link" href="addProduct.php">Add Product</a>';
+                echo '<a class="nav-link" href="myAccount.php">My Account</a>';
+                echo '<a class="nav-link" href="includes/logout.inc.php">Logout</a>';
+              }
+              elseif($_SESSION['type']=='S'){
+                echo '<a class="nav-link" href="myAccount.php">My Account</a>';
+                echo '<a class="nav-link" href="includes/logout.inc.php">Logout</a>';
+              }
+            }
+            else {
+              echo '<a class="nav-link" href="login.php">Login</a>';
+              echo '<a class="nav-link" href="signup.php">Signup</a>';
+            }
+             ?>
           </div>
         </div>
       </div>

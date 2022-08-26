@@ -1,3 +1,5 @@
 id,username,pwd,profilepic,address,bname,baddress,hub,type
-1,pikupiku29,$2y$10$7BrTpNU5KKsk608xdsHE3ep72WbdP.89.VN/RX3lNXb.ufRcHLHfK,"C:\xampp\htdocs\Fullstack\database\images\default.png",,sadasdsad,aSdsadasd,,V
-2,pikpiuk1234,$2y$10$EIzxnB9FmQ1DER0obeNc0eUvTfsIHl9H6r.ZsqZO7mm1M1egvRo2.,"C:\xampp\htdocs\Fullstack\database\images\2.jpg",,,,hub3,S
+1,pikupiku29,$2y$10$zOL0347ZkPRbYinCWSa1IO5EWfGpdzgE8n7S7hyvAqW0eEPNDt92u,"C:\xampp\htdocs\Fullstack\database\images\default.png",asdasd,,,,C
+2,pikpiuk1234,$2y$10$CTLNPiCDQ41rOYYZ2GPaA.g2k/bwz3tMPCrmyVZHxDZE3PwAscQmW,"C:\xampp\htdocs\Fullstack\database\images\default.png",dsadsas,,,,C
+3,AceS1234,$2y$10$nPFoJonXF4xrLelgbMCY4O98Ia.7YnKS7XsRZz6ZHN/hTFPQBfCvG,"C:\xampp\htdocs\Fullstack\database\images\default.png",,pikupiku29,pikupiku29,,V
+4,cho12345432,$2y$10$FvuEYVuqyGxDToVoA4633esBv/fHJ6lz9JQ1jUbymeWMBtJagPIum,"C:\xampp\htdocs\Fullstack\database\images\default.png",afdasdfsa,,,,C

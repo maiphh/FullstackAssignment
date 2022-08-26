@@ -6,7 +6,7 @@ include_once 'header.php'
  <form action="includes/login.inc.php" method="post">
    <div class="mb-3">
      <label for="exampleInputEmail1" class="form-label">Username</label>
-     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+     <input type="text" name="username">
    </div>
    <div class="mb-3">
      <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -14,7 +14,30 @@ include_once 'header.php'
    </div>
    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
  </form>
+<?php
+ if(isset($_GET['error'])) {
+   if($_GET['error']=='emptyUsername') {
+     echo '<p>Please enter your username</p>';
+   }
 
+   if($_GET['error']=='emptyPassword') {
+     echo '<p>Please enter your password</p>';
+   }
+
+   if($_GET['error']=='usernameNotExisted') {
+     echo '<p>Username does not exist</p>';
+   }
+
+   if($_GET['error']=='wrongLogin') {
+     echo '<p>Wrong username or password</p>';
+   }
+ }
+
+
+
+
+
+?>
 
 
 

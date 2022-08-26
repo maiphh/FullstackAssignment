@@ -12,3 +12,7 @@ include_once 'header.php';
  </div>
  <button type="submit" class="btn btn-primary" name="shippersubmit">Submit</button>
 </form>
+
+<?php
+require_once 'signupcheck.php';
+ ?>
