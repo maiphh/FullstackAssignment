@@ -25,8 +25,8 @@ if(isset($_POST['submit'])) {
   }
 
   foreach($users as $user) {
+
     $checkPwd = password_verify($pwd,$user[2]);
-    echo $checkPwd;
     if($user[1]==$username && $checkPwd) {
       session_start();
       $_SESSION['username'] = $username;
