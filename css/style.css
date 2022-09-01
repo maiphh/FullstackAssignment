@@ -1,4 +1,162 @@
-input {
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Montserrat';
+
+}
+
+nav {
+  height: 80px;
+  width: 100%;
+  background-color: #ffffff;
+
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+.logo a{
+  color: black;
+
+  font-size: 30px;
+  font-weight: 900;
+  padding-left: 25px;
+}
+
+.ti-menu img{
+  height: 30px;
+  width: 30px;
+}
+nav ul {
   float: right;
-  
+  margin-right: 25px;
+}
+
+nav ul li,
+.logo {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+
+nav ul li .signin{
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 25px;
+  border-radius: 3px;
+  background-color:#1949f4;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  border-radius: 30px;
+}
+
+nav ul li a{
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 25px;
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  border-radius: 30px;
+}
+
+nav ul li .signup{
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 25px;
+  border-radius: 3px;
+  background-color:#42b72a;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  border-radius: 30px;
+}
+
+nav ul li a.ti-home {
+  font-size: 18px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+margin-top: 10px;
+
+
+}
+
+nav ul li a:hover {
+  background-color: var(--grey);
+  color: #e8e8e8;
+  transition: 0.5s;
+}
+
+.ti-menu {
+  cursor: pointer;
+  font-size: 28px;
+  float: right;
+  line-height: 80px;
+  color: #000000;
+  margin-right: 40px;
+  display: none;
+  margin-top: 20px;
+}
+
+#menu {
+  display: none;
+}
+
+/* Mobile layout */
+@media (max-width: 960px) {
+  .ti-menu {
+    display: block;
+    }
+  nav ul {
+    width: 100%;
+    height: 100vh;
+    top: 80px;
+    text-align: center;
+    right: -100%;
+    transition: all .5s;
+    position: fixed;
+    background-color: #ffffff;
+    margin-right: 0;
+    z-index: 1;
+  }
+  nav ul li {
+    display: block;
+  }
+
+  nav ul li a {
+    padding: 10px 20vw;
+  }
+  #menu:checked ~ ul{
+    right: 0;
+  }
+
+}
+/* End of Nav */
+
+.signin-container {
+  margin-top: 80px;
+  height: 927px;
+  background: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/e2c020138075205.623893832d8df.png') no-repeat center/cover;
+  position: relative;
+}
+
+.form-container {
+  background-color: white;
+  height: 600px;
+  width: 550px;
+  position: absolute;
+  left: 60%;
+  top: 144px;
+  border-radius: 10px;
 }

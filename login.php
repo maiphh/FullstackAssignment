@@ -1,19 +1,21 @@
 <?php
-include_once 'header.php'
+include_once 'header.php';
  ?>
 
+<div class="signin-container">
+<div class="form-container">
 
  <form action="includes/login.inc.php" method="post">
-   <div class="mb-3">
-     <label for="exampleInputEmail1" class="form-label">Username</label>
-     <input type="text" name="username">
+   <div>
+     <input type="text" name="username" placeholder="Username">
    </div>
-   <div class="mb-3">
-     <label for="exampleInputPassword1" class="form-label">Password</label>
-     <input type="password" class="form-control" id="exampleInputPassword1" name="pwd">
+   <div>
+     <input type="password" class="" name="pwd" placeholder="Password">
    </div>
-   <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+   <button type="submit" class="" name="submit">Submit</button>
  </form>
+</div>
+</div>
 <?php
  if(isset($_GET['error'])) {
    if($_GET['error']=='emptyUsername') {
