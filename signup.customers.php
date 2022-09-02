@@ -3,13 +3,15 @@ include_once 'header.php';
  include_once 'signupform.php';
  ?>
 
- <div class="mb-3">
-   <label for="exampleInputEmail1" class="form-label">address</label>
-   <input type="text"  name="address">
- </div>
- <button type="submit" class="btn btn-primary" name="customersubmit">Submit</button>
-</form>
-
-<?php
-require_once 'signupcheck.php';
- ?>
+ <div class="signupinput">
+   <input type="text"  name="address" placeholder="Address">
+   <?php
+   require_once 'signupcheck.php';
+    ?>
+   <div class="signup signup-shipper">
+    <button type="submit" name="customersubmit">Create New Account</button>
+    </div>
+  </form>
+  <div class="signin">
+    <a href="login.php">Sign in</a>
+  </div>

@@ -19,7 +19,7 @@ session_start();
 
 </label>
 
-<label class="logo"><a href="index.html">Logo.</a></label>
+<label class="logo"><a href="index.php">Logo.</a></label>
     <ul>
 
 

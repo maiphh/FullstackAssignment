@@ -1,17 +1,17 @@
+<div class="signup-container">
+
+<div class="form-container">
+
 <form action="includes/signup.inc.php" method="post" enctype="multipart/form-data">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Username</label>
-    <input type="text"  name="username">
+  <div class="signupinput">
+    <input type="text"  name="username" placeholder="Username">
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password"  name="pwd">
+  <div class="signupinput">
+    <input type="password"  name="pwd" placeholder="Password">
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Repeat Password</label>
-    <input type="password" name="pwdrp">
+  <div class="signupinput">
+    <input type="password" name="pwdrp" placeholder="Reapeat Password">
   </div>
-  <div class="">
-    <p>Profile pic</p>
-    <input type="file" id="myFile" name="profilepic">
+  <div class="input-group mb-3" >
+    <input type="file" class="form-control" id="inputGroupFile02" name='profilepic'>
   </div>
