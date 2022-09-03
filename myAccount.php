@@ -24,7 +24,7 @@ echo '<div class="ma-info">';
 if($_SESSION['type']=='C') {
     echo '<span>Account Type: </span><p>Customer</p>';
 echo '<div>';
- echo '<span>Address: </h2><p>'. $_SESSION['address'].'</p>';
+ echo '<span>Address: </span><p>'. $_SESSION['address'].'</p>';
 echo '</div>';
 }
 elseif($_SESSION['type']=='V') {
