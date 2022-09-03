@@ -2,10 +2,26 @@
 include_once 'header.php'
  ?>
 
- <div class="d-grid gap-2">
-  <a href="signup.customers.php"><button class="btn btn-primary" type="button">Customers</button></a>
-  <a href="signup.vendors.php"><button class="btn btn-primary" type="button">Vendors</button></a>
-  <a href="signup.shippers.php"><button class="btn btn-primary" type="button" >Shippers</button></a>
+ <div class="account-type-container">
+
+<h2>Choose Account Type</h2>
+<div class="account-type-detail-container">
+
+<div class="account">
+  <a href="signup.customers.php"><img src="asset\customer.png" alt=""></a>
+  <p>Customer</p>
+</div>
+
+<div class="account">
+  <a href="signup.vendors.php"><img src="asset\vendor.png" alt=""></a>
+  <p>Vendors</p>
+</div>
+
+<div class="account">
+  <a href="signup.shippers.php"><img src="asset\shipper.png" alt=""></a>
+  <p>Shippers</p>
+</div>
+</div>
  </div>
 
 

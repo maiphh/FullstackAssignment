@@ -1,25 +1,59 @@
 <?php
 require_once 'header.php';
-
- echo '<p>Username: '.$_SESSION['username'].'</p>';
- echo '<div>';
- // echo 'Profile pic: <img src=\''.$_SESSION['profilepic'].'\' alt="" width="42" height="42">';
- echo 'Profile pic: <img src=\''.$_SESSION['profilepic'].'\' alt="" width="42" height="42">';
 ?>
-  <form action="includes/changeProfilePic.inc.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="newprofilepic" value="">
-    <button type="submit" class="btn btn-primary" name="change">Submit</button>
-  </form>
 
-  <?php
+<div class="myAccount-container">
+
+<div class="myAccount-form-container">
+  <div class="ma-profilepic">
+    <img src="<?=$_SESSION['profilepic']?>" alt="">
+    <div class="ma-username">
+      <p><?=$_SESSION['username']?></p>
+    </div>
+    <form action="includes/changeProfilePic.inc.php" method="post" enctype="multipart/form-data">
+      <div class="input-group mb-3" >
+        <input type="file" class="form-control" id="inputGroupFile02" name='newprofilepic'>
+        <button type="submit" class="btn btn-primary" name="change">Change</button>
+      </div>
+
+    </form>
+  </div>
+
+<?php
+echo '<div class="ma-info">';
+if($_SESSION['type']=='C') {
+    echo '<span>Account Type: </span><p>Customer</p>';
+echo '<div>';
+ echo '<span>Address: </h2><p>'. $_SESSION['address'].'</p>';
+echo '</div>';
+}
+elseif($_SESSION['type']=='V') {
+  echo '<span>Account Type: </span><p>Vendor</p>';
+  echo '<div>';
+ echo '<span>Bussiness name: </span><p>'. $_SESSION['bname'].'</p>';
  echo '</div>';
- if($_SESSION['type']=='C') {
-   echo '<p>Address: '. $_SESSION['address'].'</p>';
- }
- elseif($_SESSION['type']=='V') {
-   echo '<p>Bussiness name: '. $_SESSION['bname'].'</p>';
-   echo '<p>Bussiness address: '.$_SESSION['baddress'].'</p>';
- }
- else {
-   echo '<p>Hub: '.$_SESSION['hub'].'</p>';
- }
+ echo '<div>';
+ echo '<span>Bussiness address: </span><p>'.$_SESSION['baddress'].'</p>';
+ echo '</div>';
+}
+else {
+    echo '<span>Account Type: </span><p>Shipper</p>';
+    echo '<div>';
+ echo '<span>Hub: </span><p>'.$_SESSION['hub'].'</p>';
+ echo '</div>';
+}
+echo '<div>';
+
+?>
+</div>
+</div>
+
+
+
+
+<!-- <form action="includes/changeProfilePic.inc.php" method="post" enctype="multipart/form-data">
+  <div class="input-group">
+    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="newprofilepic">
+    <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" name="change">Button</button>
+  </div>
+</form> -->

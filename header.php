@@ -41,7 +41,7 @@ session_start();
               }
             }
             else {
-              echo '<li><a class="signin" href="login.php">Sign in</a></li>';
+              echo '<li><a class="signin signin-btn" href="login.php">Sign in</a></li>';
               echo '<li><a class="signup" href="signup.php">Sign up</a></li>';
             }
              ?>
