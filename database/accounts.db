@@ -1,2 +1,4 @@
 id,username,pwd,profilepic,address,bname,baddress,hub,type
-1,pikupiku29,$2y$10$dSia8x41IV/xQwP3ucA2vOZ35MvuTU1jpivDplvafnnnf2PTa/fU6,"..\database\images\1.jpg",,,,hub2,S
+1,fullstack123,$2y$10$lKS1adDTH7C5zWiOpz.f3OfLdUG9up4qqHiQQrOdsmSL2DySZtvfu,"..\database\images\1.png",dsadsadsa,,,,C
+2,cho12345,$2y$10$vwCFkZrYBucRuSjOdi3blufqeIqlQmQ9alCoiPGI4vhx4R1CM36yK,"..\database\images\2.png",,dsadsa,dsadssad,,V
+3,pikupiku29,$2y$10$0XX2Hs.bLxwp9CGtqIbAK.WZdD2Q7njVtys82hVUVzbadGpRL1J7C,"..\database\images\3.png",,,,hub1,S

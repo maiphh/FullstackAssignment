@@ -46,7 +46,7 @@ function pwdMatch($pwd,$pwdrp) {
 }
 
 function usernameExist($username) {
-  $handle = fopen('C:\xampp\htdocs\Fullstack\database\accounts.db','r');
+  $handle = fopen('..\..\database\accounts.db','r');
   while(!feof($handle)) {
     $line = fgetcsv($handle);
     if(is_array($line)){
@@ -59,7 +59,7 @@ return false;
 }
 
 function bnameExist($bname) {
-  $handle = fopen('C:\xampp\htdocs\Fullstack\database\accounts.db','r');
+  $handle = fopen('..\..\database\accounts.db','r');
   while(!feof($handle)) {
     $line = fgetcsv($handle);
     if(is_array($line)){
@@ -74,7 +74,7 @@ return false;
 }
 
 function baddressExist($baddress) {
-  $handle = fopen('C:\xampp\htdocs\Fullstack\database\accounts.db','r');
+  $handle = fopen('..\..\database\accounts.db','r');
   while(!feof($handle)) {
     $line = fgetcsv($handle);
     if(is_array($line)){
@@ -93,13 +93,13 @@ function uploadImage($profilepic,$id) {
   $extension = end($name);
   $profilepicName = strval($id).'.'.$extension;
   $profilepicLink = '..\database\images\\'.$profilepicName;
-  $absoluteLink = 'C:\xampp\htdocs\Fullstack\database\images\\'.$profilepicName;
+  $absoluteLink = '..\..\database\images\\'.$profilepicName;
   move_uploaded_file($profilepic['tmp_name'],$absoluteLink);
   return $profilepicLink;
 }
 
 function createCustomer($id,$username,$pwd,$profilepic,$address) {
-  $handle = fopen('C:\xampp\htdocs\Fullstack\database\accounts.db','a');
+  $handle = fopen('..\..\database\accounts.db','a');
 
   $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
 
@@ -115,7 +115,7 @@ function createCustomer($id,$username,$pwd,$profilepic,$address) {
   }
 
 function createVendor($id,$username,$pwd,$profilepic,$bname,$baddress) {
-    $handle = fopen('C:\xampp\htdocs\Fullstack\database\accounts.db','a');
+    $handle = fopen('..\..\database\accounts.db','a');
 
     $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
 
@@ -132,7 +132,7 @@ function createVendor($id,$username,$pwd,$profilepic,$bname,$baddress) {
 
 
 function createShipper($id,$username,$pwd,$profilepic,$hub) {
-        $handle = fopen('C:\xampp\htdocs\Fullstack\database\accounts.db','a');
+        $handle = fopen('..\..\database\accounts.db','a');
 
         $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
 
@@ -149,7 +149,7 @@ function createShipper($id,$username,$pwd,$profilepic,$hub) {
 
 function readUsers() {
   $users=[];
-  $handle = fopen('C:\xampp\htdocs\Fullstack\database\accounts.db','r');
+  $handle = fopen('..\..\database\accounts.db','r');
   while(!feof($handle)) {
     $user = fgetcsv($handle);
     $users[] = $user;

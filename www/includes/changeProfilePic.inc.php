@@ -5,7 +5,7 @@ if(isset($_POST['change'])) {
     $profilepic = $_FILES['newprofilepic'];
     require_once 'functions.inc.php';
     $users = readUsers();
-    $handle = fopen('C:\xampp\htdocs\Fullstack\database\accounts.db','w');
+    $handle = fopen('..\..\database\accounts.db','w');
     foreach($users as $user) {
       if(isset($user[1])){
       if($user[1]==$_SESSION['username']) {
