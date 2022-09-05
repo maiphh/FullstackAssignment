@@ -501,18 +501,23 @@ nav ul li a:hover {
         margin-top: 12Spx;
     }
 }
+/* Product Display */
+.products-display {
+    margin-top: 20%;
+    height: auto;
+}
 
 /* Footer starts here */
 .footer {
     background-color: #f1f2f6;
+    position: absolute;
+    bottom: 0;
 }
 
 .wrapper {
-    margin: 0 auto;
     padding-top: 10px;
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    height: fit-content;
     border: 1px solid black;
 }
 
