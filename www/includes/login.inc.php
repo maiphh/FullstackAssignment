@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
   require_once 'dbh.inc.php';
   require_once 'functions.inc.php';
 
-  $users = readUsers();
+  $users = get_list_from_file('accounts.db');
 
   if (emptyInput($username) !== false) {
     header('location:../login.php?error=emptyUsername');

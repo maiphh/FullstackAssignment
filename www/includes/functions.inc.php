@@ -146,16 +146,17 @@ function createShipper($id, $username, $pwd, $profilepic, $hub)
   fputcsv($handle, $new_user);
 }
 
-function readUsers()
+function get_list_from_file($file)
 {
-  $users = [];
-  $handle = fopen('..\..\database\accounts.db', 'r');
+  $list = [];
+  $filepath = '../../database/' + $file;
+  $handle = fopen($filepath, 'r');
   while (!feof($handle)) {
-    $user = fgetcsv($handle);
-    $users[] = $user;
+    $item = fgetcsv($handle);
+    $list[] = $item;
   }
   fclose($handle);
-  return $users;
+  return $list;
 }
 
 function readProducts()
@@ -418,7 +419,6 @@ function delete_cart()
 function clear_cart()
 {
   if (isset($_POST['clear'])) {
-    echo print_r('wor');
     $_SESSION['cart'] = [];
   }
 }
