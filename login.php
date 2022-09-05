@@ -1,19 +1,54 @@
 <?php
-include_once 'header.php'
+include_once 'header.php';
  ?>
 
+<div class="signin-container">
+<div class="form-container">
 
+<h1>Logo.</h1>
  <form action="includes/login.inc.php" method="post">
-   <div class="mb-3">
-     <label for="exampleInputEmail1" class="form-label">Username</label>
-     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+   <div class="login">
+     <input type="text" name="username" placeholder="Username">
    </div>
-   <div class="mb-3">
-     <label for="exampleInputPassword1" class="form-label">Password</label>
-     <input type="password" class="form-control" id="exampleInputPassword1" name="pwd">
+   <div class="login">
+     <input type="password" class="" name="pwd" placeholder="Password">
    </div>
-   <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+   <div class="submit-container">
+
+  <span><a href="#">Forgotten password?</a></span>
+   <button type="submit" class="" name="submit">Sign in</button>
+
+ </div>
+ <?php
+  if(isset($_GET['error'])) {
+    echo '<div class="error">';
+    if($_GET['error']=='emptyUsername') {
+      echo '<p>Please enter your username</p>';
+    }
+
+    if($_GET['error']=='emptyPassword') {
+      echo '<p>Please enter your password</p>';
+    }
+
+    if($_GET['error']=='usernameNotExisted') {
+      echo '<p>Username does not exist</p>';
+    }
+
+    if($_GET['error']=='wrongLogin') {
+      echo '<p>Wrong username or password</p>';
+    }
+    echo '</div>';
+  }
+ ?>
+
  </form>
+
+ <div class="signup">
+   <a href="signup.php">Create New Account</a>
+
+ </div>
+</div>
+</div>
 
 
 
