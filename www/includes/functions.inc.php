@@ -156,6 +156,48 @@ function readUsers() {
   }
   fclose($handle);
   return $users;
+
+}
+
+function readProducts() {
+  $products=[];
+  $handle = fopen('..\database\products.db','r');
+  $header = fgetcsv($handle);
+  while(!feof($handle)) {
+    $product = fgetcsv($handle);
+    if($product!=null) {
+    $products[] = $product;
+  }
+  }
+  fclose($handle);
+  return $products;
+}
+
+function displayProduct($name,$price,$image) {
+  echo <<<HEREDOC
+  <div class="product">
+
+  <div class="product-image">
+    <img src=$image alt="">
+  </div>
+
+    <div class="product-info">
+
+      <div class="product-name">
+      <p>$name</p>
+      </div>
+<div>
+      <div class="product-price">
+        <p>$price$</p>
+      </div>
+
+      <div class="product-addtocart">
+        <a href="#"><i class="ti-shopping-cart"></i></a>
+      </div>
+</div>
+    </div>
+  </div>
+HEREDOC;
 }
 
 function emptyInput($data) {
