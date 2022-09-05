@@ -1,6 +1,6 @@
 <!-- Header starts here -->
 <?php include_once 'header.php' ?>
-<!-- Footer ends here -->
+<!-- Header ends here -->
 
 <div class="main-content">
   <!-- Search and Filter starts here -->

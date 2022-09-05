@@ -1,165 +1,181 @@
 <?php
 
-function invalidUsername($username) {
+function invalidUsername($username)
+{
   $result;
-  if(!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/",$username)) {
+  if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/", $username)) {
     $result = true;
-  }
-  else{
+  } else {
     $result = false;
   }
   return $result;
 }
 
-function invalidPassword($pwd) {
+function invalidPassword($pwd)
+{
   $result;
-  if(!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/",$pwd)) {
+  if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/", $pwd)) {
     $result = true;
-  }
-  else {
+  } else {
     $result = false;
   }
   return $result;
 }
 
-function invalidInput($input) {
+function invalidInput($input)
+{
   $result;
-  if(strlen(trim($input))<5) {
+  if (strlen(trim($input)) < 5) {
     $result = true;
-  }
-  else {
+  } else {
     $result = false;
   }
   return $result;
 }
 
-function pwdMatch($pwd,$pwdrp) {
+function pwdMatch($pwd, $pwdrp)
+{
   $result;
-  if($pwd !== $pwdrp) {
+  if ($pwd !== $pwdrp) {
     $result = true;
-  }
-  else {
+  } else {
     $result = false;
   }
   return $result;
-
 }
 
-function usernameExist($username) {
-  $handle = fopen('..\..\database\accounts.db','r');
-  while(!feof($handle)) {
+function usernameExist($username)
+{
+  $handle = fopen('..\..\database\accounts.db', 'r');
+  while (!feof($handle)) {
     $line = fgetcsv($handle);
-    if(is_array($line)){
-    if($line[1]==$username) {
-      return true;
-    }
-  }
-}
-return false;
-}
-
-function bnameExist($bname) {
-  $handle = fopen('..\..\database\accounts.db','r');
-  while(!feof($handle)) {
-    $line = fgetcsv($handle);
-    if(is_array($line)){
-    if($line[8]=='V') {
-      if($line[5]==$bname){
+    if (is_array($line)) {
+      if ($line[1] == $username) {
         return true;
       }
     }
   }
-}
-return false;
+  return false;
 }
 
-function baddressExist($baddress) {
-  $handle = fopen('..\..\database\accounts.db','r');
-  while(!feof($handle)) {
+function bnameExist($bname)
+{
+  $handle = fopen('..\..\database\accounts.db', 'r');
+  while (!feof($handle)) {
     $line = fgetcsv($handle);
-    if(is_array($line)){
-    if($line[8]=='V') {
-      if($line[6]==$baddress){
-        return true;
+    if (is_array($line)) {
+      if ($line[8] == 'V') {
+        if ($line[5] == $bname) {
+          return true;
+        }
       }
     }
   }
-}
-return false;
+  return false;
 }
 
-function uploadImage($profilepic,$id) {
-  $name = explode('.',$profilepic['name']);
+function baddressExist($baddress)
+{
+  $handle = fopen('..\..\database\accounts.db', 'r');
+  while (!feof($handle)) {
+    $line = fgetcsv($handle);
+    if (is_array($line)) {
+      if ($line[8] == 'V') {
+        if ($line[6] == $baddress) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+function uploadImage($profilepic, $id)
+{
+  $name = explode('.', $profilepic['name']);
   $extension = end($name);
-  $profilepicName = strval($id).'.'.$extension;
-  $profilepicLink = '..\database\images\\'.$profilepicName;
-  $absoluteLink = '..\..\database\images\\'.$profilepicName;
-  move_uploaded_file($profilepic['tmp_name'],$absoluteLink);
+  $profilepicName = strval($id) . '.' . $extension;
+  $profilepicLink = '..\database\images\\' . $profilepicName;
+  $absoluteLink = '..\..\database\images\\' . $profilepicName;
+  move_uploaded_file($profilepic['tmp_name'], $absoluteLink);
   return $profilepicLink;
 }
 
-function createCustomer($id,$username,$pwd,$profilepic,$address) {
-  $handle = fopen('..\..\database\accounts.db','a');
+function createCustomer($id, $username, $pwd, $profilepic, $address)
+{
+  $handle = fopen('..\..\database\accounts.db', 'a');
 
-  $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
+  $hashpwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-  if(empty($profilepic['name'])) {
+  if (empty($profilepic['name'])) {
     $profilepicLink = '..\database\images\default.png';
-  }
-  else {
-    $profilepicLink = uploadImage($profilepic,$id);
-  }
-
-  $new_user = array($id,$username,$hashpwd,$profilepicLink,$address,null,null,null,'C');
-    fputcsv($handle, $new_user);
+  } else {
+    $profilepicLink = uploadImage($profilepic, $id);
   }
 
-function createVendor($id,$username,$pwd,$profilepic,$bname,$baddress) {
-    $handle = fopen('..\..\database\accounts.db','a');
+  $new_user = array($id, $username, $hashpwd, $profilepicLink, $address, null, null, null, 'C');
+  fputcsv($handle, $new_user);
+}
 
-    $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
+function createVendor($id, $username, $pwd, $profilepic, $bname, $baddress)
+{
+  $handle = fopen('..\..\database\accounts.db', 'a');
 
-    if(empty($profilepic['name'])) {
-      $profilepicLink = '..\database\images\default.png';
-    }
-    else {
-      $profilepicLink = uploadImage($profilepic,$id);
-    }
+  $hashpwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-    $new_user = array($id,$username,$hashpwd,$profilepicLink,null,$bname,$baddress,null,'V');
-      fputcsv($handle, $new_user);
-    }
+  if (empty($profilepic['name'])) {
+    $profilepicLink = '..\database\images\default.png';
+  } else {
+    $profilepicLink = uploadImage($profilepic, $id);
+  }
+
+  $new_user = array($id, $username, $hashpwd, $profilepicLink, null, $bname, $baddress, null, 'V');
+  fputcsv($handle, $new_user);
+}
 
 
-function createShipper($id,$username,$pwd,$profilepic,$hub) {
-        $handle = fopen('..\..\database\accounts.db','a');
+function createShipper($id, $username, $pwd, $profilepic, $hub)
+{
+  $handle = fopen('..\..\database\accounts.db', 'a');
 
-        $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
+  $hashpwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-        if(empty($profilepic['name'])) {
-          $profilepicLink = '..\database\images\default.png';
-        }
-        else {
-          $profilepicLink = uploadImage($profilepic,$id);
-        }
+  if (empty($profilepic['name'])) {
+    $profilepicLink = '..\database\images\default.png';
+  } else {
+    $profilepicLink = uploadImage($profilepic, $id);
+  }
 
-        $new_user = array($id,$username,$hashpwd,$profilepicLink,null,null,null,$hub,'S');
-          fputcsv($handle, $new_user);
-        }
+  $new_user = array($id, $username, $hashpwd, $profilepicLink, null, null, null, $hub, 'S');
+  fputcsv($handle, $new_user);
+}
 
-function readUsers() {
-  $users=[];
-  $handle = fopen('..\..\database\accounts.db','r');
-  while(!feof($handle)) {
+function readUsers()
+{
+  $users = [];
+  $handle = fopen('..\..\database\accounts.db', 'r');
+  while (!feof($handle)) {
     $user = fgetcsv($handle);
     $users[] = $user;
   }
   fclose($handle);
   return $users;
 }
+function readProducts()
+{
+  $products = [];
+  $file = fopen('..\..\database\product.csv', 'r');
+  while (!feof($file)) {
+    $product = fgetcsv($file);
+    $products[] = $product;
+  }
+  fclose($file);
+  return $products;
+}
 
-function emptyInput($data) {
-  if(empty($data)) {
+function emptyInput($data)
+{
+  if (empty($data)) {
     return true;
   }
   return false;
