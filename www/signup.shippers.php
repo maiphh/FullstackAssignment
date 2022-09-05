@@ -26,3 +26,4 @@ require_once 'signupcheck.php';
 </div>
  </div>
  </div>
+<script src="validate.js"></script>

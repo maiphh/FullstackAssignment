@@ -15,3 +15,4 @@ include_once 'header.php';
   <div class="signin">
     <a href="login.php">Sign in</a>
   </div>
+<script src="validate.js"></script>

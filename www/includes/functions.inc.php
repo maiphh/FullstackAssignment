@@ -92,7 +92,7 @@ function uploadImage($profilepic,$id) {
   $name = explode('.',$profilepic['name']);
   $extension = end($name);
   $profilepicName = strval($id).'.'.$extension;
-  $profilepicLink = 'database\images\\'.$profilepicName;
+  $profilepicLink = '..\database\images\\'.$profilepicName;
   $absoluteLink = 'C:\xampp\htdocs\Fullstack\database\images\\'.$profilepicName;
   move_uploaded_file($profilepic['tmp_name'],$absoluteLink);
   return $profilepicLink;
@@ -104,7 +104,7 @@ function createCustomer($id,$username,$pwd,$profilepic,$address) {
   $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
 
   if(empty($profilepic['name'])) {
-    $profilepicLink = 'database\images\default.png';
+    $profilepicLink = '..\database\images\default.png';
   }
   else {
     $profilepicLink = uploadImage($profilepic,$id);
@@ -120,7 +120,7 @@ function createVendor($id,$username,$pwd,$profilepic,$bname,$baddress) {
     $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
 
     if(empty($profilepic['name'])) {
-      $profilepicLink = 'database\images\default.png';
+      $profilepicLink = '..\database\images\default.png';
     }
     else {
       $profilepicLink = uploadImage($profilepic,$id);
@@ -137,7 +137,7 @@ function createShipper($id,$username,$pwd,$profilepic,$hub) {
         $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
 
         if(empty($profilepic['name'])) {
-          $profilepicLink = 'database\images\default.png';
+          $profilepicLink = '..\database\images\default.png';
         }
         else {
           $profilepicLink = uploadImage($profilepic,$id);
