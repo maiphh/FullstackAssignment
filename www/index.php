@@ -2,6 +2,7 @@
 include_once 'header.php';
 include_once(__DIR__ . '\includes\functions.inc.php');
 $products = readProducts();
+$products_post_filters;
 ?>
 <div class="banner">
 
@@ -9,26 +10,15 @@ $products = readProducts();
 <div class="main-content">
 
 
-  <h1>Products</h1>
-  <div class="search">
-
-  </div>
   <!-- Search and Filter starts here -->
   <?php //include_once 'filters.php' 
   ?>
   <!-- Search and Filter ends here -->
 
   <!-- Product display starts here -->
-  <div class="product-display">
-
-    <?php
-    foreach ($products as $product) {
-      displayProduct($product[1], $product[2], $product[3]);
-    }
-    ?>
-
-  </div>
+  <?php include_once 'products-display.php'; ?>
   <!-- Product display ends here -->
+
 </div>
 
 <!-- Footer starts here -->
