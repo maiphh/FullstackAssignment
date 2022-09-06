@@ -2,6 +2,7 @@
 include_once 'header.php';
 include_once(__DIR__ . '\includes\functions.inc.php');
 $products = readProducts();
+$products_post_filters;
 ?>
 
 <div class="banner">
@@ -10,10 +11,13 @@ $products = readProducts();
 <div class="main-content">
 
 
+<<<<<<< HEAD
   <h1>Products</h1>
   <div class="search">
   </div>
 
+=======
+>>>>>>> refs/remotes/origin/customer-page
   <!-- Search and Filter starts here -->
   <?php include_once 'filters.php'
   ?>
@@ -22,6 +26,7 @@ $products = readProducts();
   <!-- Product display starts here -->
   <?php include_once 'products-display.php'; ?>
   <!-- Product display ends here -->
+
 </div>
 
 <!-- Footer starts here -->
