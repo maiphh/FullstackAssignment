@@ -166,9 +166,14 @@ function readProducts()
 {
   $products = [];
   $handle = fopen('..\database\products.db', 'r');
-  // $header = fgetcsv($handle);
-  while (!feof($handle)) {
-    $product = fgetcsv($handle);
+  $first = fgetcsv($handle);
+  while ($row = fgetcsv($handle)) {
+    $i = 0;
+    $product = [];
+    foreach ($first as $col_name) {
+      $product[$col_name] = $row[$i];
+      $i++;
+    }
     if ($product != null) {
       if (isset($_GET['min_price']) && is_numeric($_GET['min_price'])) {
         if ($product['price'] < $_GET['min_price']) {
@@ -176,12 +181,14 @@ function readProducts()
         }
       };
       if (isset($_GET['max_price']) && is_numeric($_GET['max_price'])) {
-        if ($product['price'] < $_GET['min_price']) {
+        if ($product['price'] > $_GET['min_price']) {
           continue;
         }
       };
       if (isset($_GET['name']) && !empty($_GET['name'])) {
-        if (strpos($product['name'], $_GET['name']) === false) {
+        $haystack = strtolower($product['name']);
+        $needle = strtolower($_GET['name']);
+        if (strpos($haystack, $needle) === false) {
           continue;
         }
       };
