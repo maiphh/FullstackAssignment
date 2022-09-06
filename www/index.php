@@ -27,5 +27,7 @@ $products_post_filters;
 
 </div>
 
-<!-- Footer -->
-<?php include_once 'footer.php' ?>
+<?php
+// Footer
+include_once 'footer.php'
+?>

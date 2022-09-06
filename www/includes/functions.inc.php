@@ -166,12 +166,27 @@ function readProducts()
 {
   $products = [];
   $handle = fopen('..\database\products.db', 'r');
-  $header = fgetcsv($handle);
+  // $header = fgetcsv($handle);
   while (!feof($handle)) {
     $product = fgetcsv($handle);
     if ($product != null) {
+      if (isset($_GET['min_price']) && is_numeric($_GET['min_price'])) {
+        if ($product['price'] < $_GET['min_price']) {
+          continue;
+        }
+      };
+      if (isset($_GET['max_price']) && is_numeric($_GET['max_price'])) {
+        if ($product['price'] < $_GET['min_price']) {
+          continue;
+        }
+      };
+      if (isset($_GET['name']) && !empty($_GET['name'])) {
+        if (strpos($product['name'], $_GET['name']) === false) {
+          continue;
+        }
+      };
       $products[] = $product;
-    }
+    };
   }
   fclose($handle);
   return $products;
