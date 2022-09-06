@@ -2,7 +2,6 @@
 
 function invalidUsername($username)
 {
-  $result;
   if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/", $username)) {
     $result = true;
   } else {
@@ -13,7 +12,6 @@ function invalidUsername($username)
 
 function invalidPassword($pwd)
 {
-  $result;
   if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/", $pwd)) {
     $result = true;
   } else {
@@ -24,7 +22,6 @@ function invalidPassword($pwd)
 
 function invalidInput($input)
 {
-  $result;
   if (strlen(trim($input)) < 5) {
     $result = true;
   } else {
@@ -35,7 +32,6 @@ function invalidInput($input)
 
 function pwdMatch($pwd, $pwdrp)
 {
-  $result;
   if ($pwd !== $pwdrp) {
     $result = true;
   } else {
