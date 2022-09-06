@@ -1,7 +1,7 @@
-pID,name,price,image,description
-1,iphone12,599,"..\database\product-images\test.jpg",This is an Iphone
-2,iphone2,699,"..\database\product-images\test.jpg",This is an Iphone
-3,iphone13,599,"..\database\product-images\test.jpg",This is an Iphone
-4,iphone7,599,"..\database\product-images\test.jpg",This is an Iphone
-5,iphone4,599,"..\database\product-images\test.jpg",This is an Iphone
-6,iphone1,5999,"..\database\product-images\test.jpg",This is an Iphone
+pID,ID,name,price,image,description
+1,2,iphone12,599,"..\database\product-images\test.jpg",This is an Iphone
+2,3,iphone2,699,"..\database\product-images\test.jpg",This is an Iphone
+3,4,iphone13,599,"..\database\product-images\test.jpg",This is an Iphone
+4,1,iphone7,599,"..\database\product-images\test.jpg",This is an Iphone
+5,2,iphone4,599,"..\database\product-images\test.jpg",This is an Iphone
+6,3,iphone1,5999,"..\database\product-images\test.jpg",This is an Iphone

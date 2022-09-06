@@ -173,12 +173,12 @@ function readProducts() {
   return $products;
 }
 
-function displayProduct($name,$price,$image) {
+function displayProduct($pID,$ID,$name,$price,$image,$des) {
   echo <<<HEREDOC
   <div class="product">
 
   <div class="product-image">
-    <img src=$image alt="">
+   <a href="productDetail.php?pID=$pID&ID=$ID&name=$name&price=$price&image=$image&des=$des"><img src=$image alt="product"></a>
   </div>
 
     <div class="product-info">
@@ -186,7 +186,7 @@ function displayProduct($name,$price,$image) {
       <div class="product-name">
       <p>$name</p>
       </div>
-<div>
+<div class="price-btn">
       <div class="product-price">
         <p>$price$</p>
       </div>
@@ -197,6 +197,32 @@ function displayProduct($name,$price,$image) {
 </div>
     </div>
   </div>
+
+HEREDOC;
+}
+
+function viewProduct($pID,$ID,$name,$price,$image,$des) {
+  echo <<<HEREDOC
+  <div class="product">
+
+  <div class="product-image">
+   <a href="productDetail.php?pID=$pID&ID=$ID&name=$name&price=$price&image=$image&des=$des"><img src=$image alt="product"></a>
+  </div>
+
+    <div class="product-info">
+
+      <div class="product-name">
+      <p>$name</p>
+      </div>
+<div  class="price-btn">
+      <div class="product-price">
+        <p>$price$</p>
+      </div>
+
+</div>
+    </div>
+  </div>
+
 HEREDOC;
 }
 

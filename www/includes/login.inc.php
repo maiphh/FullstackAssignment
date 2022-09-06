@@ -29,6 +29,7 @@ if(isset($_POST['submit'])) {
     $checkPwd = password_verify($pwd,$user[2]);
     if($user[1]==$username && $checkPwd) {
       session_start();
+      $_SESSION['ID'] = $user[0];
       $_SESSION['username'] = $username;
       $_SESSION['pwd'] = $user[2];
       $_SESSION['profilepic'] = $user[3];
