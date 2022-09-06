@@ -1,7 +1,14 @@
 <?php
+// Header
 include_once 'header.php';
+
+// Include functions.inc.php for general purpose functions
 include_once(__DIR__ . '\includes\functions.inc.php');
+
+// Set variable products as the products list from products.db
 $products = readProducts();
+
+// Set variable for display products after filtering
 $products_post_filters;
 ?>
 
@@ -10,25 +17,15 @@ $products_post_filters;
 </div>
 <div class="main-content">
 
+  <?php
+  // Search and filters products
+  include_once 'filters.php';
 
-<<<<<<< HEAD
-  <h1>Products</h1>
-  <div class="search">
-  </div>
-
-=======
->>>>>>> refs/remotes/origin/customer-page
-  <!-- Search and Filter starts here -->
-  <?php include_once 'filters.php'
+  // Products display
+  include_once 'products-display.php';
   ?>
-  <!-- Search and Filter ends here -->
-
-  <!-- Product display starts here -->
-  <?php include_once 'products-display.php'; ?>
-  <!-- Product display ends here -->
 
 </div>
 
-<!-- Footer starts here -->
+<!-- Footer -->
 <?php include_once 'footer.php' ?>
-<!-- Footer ends here -->
