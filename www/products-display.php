@@ -1,5 +1,9 @@
-<div class="products-display ">
-    <div class="wrapper">
-        <h1> <strong>View Products</strong> </h1>
-    </div>
+<div class="product-display">
+
+    <?php
+    foreach ($products as $product) {
+        displayProduct($product[1], $product[2], $product[3]);
+    }
+    ?>
+
 </div>
