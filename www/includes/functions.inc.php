@@ -236,7 +236,7 @@ function displayProduct($name, $price, $image)
       </div>
 
       <div class="product-addtocart">
-        <a href="#"><i class="ti-shopping-cart"></i></a>
+        <button type="button" class="ti-shopping-cart"></button>
       </div>
 </div>
     </div>
