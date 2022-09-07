@@ -125,3 +125,11 @@ function readUsers() {
   }
   return $users;
 }
+
+function emptyInput($data) {
+  if(empty($data)) {
+    return true;
+  }
+  return false;
+}
+
