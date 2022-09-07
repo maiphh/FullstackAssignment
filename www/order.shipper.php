@@ -26,9 +26,8 @@
     <div>
       <p>Address:</p> <!-- Address needs data input (meaning linked to the database) -->
       <p>Total:</p> <!-- Total price needs data input (meaning linked to the database) -->
-      <label for="shipperconfirm">Status</label>
       
-      <select id="shipperconfirm">
+      <select id="orderstatus">
         <option value="Active">Active</option>
         <option value="delivered">Delievered</option> <!-- Make the Order dissapeared if user choose this option -->
         <option value="canceled">Canceled</option> <!-- Make the Order dissapeared if user choose this option -->
