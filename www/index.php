@@ -6,7 +6,7 @@ include_once 'header.php';
 include_once(__DIR__ . '\includes\functions.inc.php');
 
 // Set variable products as the products list from products.db
-$products = read_Filter_Products();
+$products = read_filter_products();
 ?>
 
 <div class="banner">

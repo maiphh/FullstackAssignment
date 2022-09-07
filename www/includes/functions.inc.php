@@ -158,7 +158,7 @@ function readUsers()
   return $users;
 }
 
-function read_Filter_Products()
+function read_filter_products()
 {
   $products = [];
   $handle = fopen('..\database\products.db', 'r');
@@ -199,7 +199,26 @@ function read_Filter_Products()
   return $products;
 }
 
-function readProduct
+function read_product_id($id_list)
+{
+  $products = [];
+  $handle = fopen('..\database\products.db', 'r');
+  $first = fgetcsv($handle);
+  while ($row = fgetcsv($handle)) {
+    $i = 0;
+    $product = [];
+    foreach ($first as $col_name) {
+      $product[$col_name] = $row[$i];
+      $i++;
+      if ($product != null) {
+        if ($id_list[$i] === $product['Pid']) {
+          continue;
+        }
+        $products[] = $product;
+      }
+    }
+  }
+}
 
 function displayProduct($name, $price, $image)
 {
