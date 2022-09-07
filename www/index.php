@@ -1,5 +1,4 @@
 <?php
-// Header
 include_once 'header.php';
 
 // Include Main-content.php

@@ -9,10 +9,6 @@
     font-family: "Montserrat";
 }
 
-a {
-    text-decoration: none;
-}
-
 nav {
     height: 80px;
     width: 100%;
@@ -529,6 +525,7 @@ nav ul li a:hover {
 .product-display {
     display: grid;
     grid-template-columns: auto auto auto;
+    row-gap: 50px;
 }
 
 .product-display .product .product-image {
@@ -545,6 +542,7 @@ nav ul li a:hover {
 .product-display .product .product-image img {
     height: 300px;
     border-radius: 10px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 .product-display .product .product-name p {
@@ -562,6 +560,10 @@ nav ul li a:hover {
     display: inline-block;
 }
 
+.product-display .product .price-btn {
+    margin-top: -20px;
+}
+
 .product-display .product .product-addtocart {
     margin-left: 200px;
     display: inline-block;
@@ -577,6 +579,11 @@ nav ul li a:hover {
     text-decoration: none;
     color: white;
 }
+@media (max-width: 1190px) {
+    .main-content {
+        margin-left: 10%;
+    }
+}
 
 @media (max-width: 1023px) {
     .product-display {
@@ -587,5 +594,84 @@ nav ul li a:hover {
 @media (max-width: 767px) {
     .product-display {
         grid-template-columns: auto;
+    }
+    .main-content {
+        margin-left: 25%;
+    }
+}
+
+/* Product Detail */
+.product-detail-container {
+    margin-top: 80px;
+    margin-left: 25%;
+}
+
+.product-detail-container h1 {
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-bottom: 50px;
+}
+
+.product-detail {
+    display: grid;
+    grid-template-columns: 400px 500px;
+    grid-template-rows: 350px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-right: 300px;
+    align-items: center;
+}
+
+.product-detail-img img {
+    height: 300px;
+    width: 300px;
+}
+
+.product-detail-text h2,
+.product-detail-text p {
+    display: inline-block;
+}
+
+.product-detail-text h2 {
+    font-size: 20px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+
+.product-detail-container button {
+    float: right;
+    margin-right: 300px;
+    background-color: #1949f4;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 35px;
+    border-radius: 3px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    border-radius: 30px;
+    margin-top: 30px;
+}
+
+@media (max-width: 1350px) {
+    .product-detail {
+        grid-template-columns: 270px 500px;
+    }
+    .product-detail-text h2,
+    .product-detail-text p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .product-detail {
+        grid-template-columns: 300px;
+        width: 300px;
+    }
+
+    .product-detail-text {
+        margin-left: 20px;
     }
 }
