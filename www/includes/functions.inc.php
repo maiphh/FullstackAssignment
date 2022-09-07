@@ -244,6 +244,27 @@ function displayProduct($name, $price, $image)
 HEREDOC;
 }
 
+function viewProduct($pID, $ID, $name, $price, $image, $des)
+{
+  echo <<<HEREDOC
+  <div class="product">
+  <div class="product-image">
+   <a href="productDetail.php?pID=$pID&ID=$ID&name=$name&price=$price&image=$image&des=$des"><img src=$image alt="product"></a>
+  </div>
+    <div class="product-info">
+      <div class="product-name">
+      <p>$name</p>
+      </div>
+<div  class="price-btn">
+      <div class="product-price">
+        <p>$price$</p>
+      </div>
+</div>
+    </div>
+  </div>
+HEREDOC;
+}
+
 function emptyInput($data)
 {
   if (empty($data)) {
