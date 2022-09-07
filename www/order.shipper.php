@@ -18,7 +18,7 @@
     <div class="orderlist">
       <img class="productpic" src="database\images\product-images\test.jpg" alt="product pic">
       <h1>
-        <a href="order.shipper.php">Order #1</a>  <!-- Order number needs data input (meaning linked to the database) -->
+        <a href="product.php">Product name</a>  <!-- Product needs data input (meaning linked to the database) -->
       </h1>
       <p>$599</p> <!-- Order price needs data input (meaning linked to the database) -->
     </div>
