@@ -3,7 +3,7 @@
 include_once 'header.php';
 
 // Include functions.inc.php for general purpose functions
-include_once(__DIR__ . '\includes\functions.inc.php');
+include_once 'includes\functions.inc.php';
 
 // Set variable products as the products list from products.db
 $products = read_filter_products();

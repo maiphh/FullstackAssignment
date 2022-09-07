@@ -172,12 +172,12 @@ function read_filter_products()
     }
     if ($product != null) {
       if (isset($_GET['min_price']) && is_numeric($_GET['min_price'])) {
-        if ($product['price'] < $_GET['min_price']) {
+        if ($product['price'] <= $_GET['min_price']) {
           continue;
         }
       };
       if (isset($_GET['max_price']) && is_numeric($_GET['max_price'])) {
-        if ($product['price'] > $_GET['min_price']) {
+        if ($product['price'] >= $_GET['max_price']) {
           continue;
         }
       };
@@ -188,10 +188,6 @@ function read_filter_products()
           continue;
         }
       };
-      if (isset($_GET['pid']) && !empty($_GET['pid'])) {
-        if ($product['pid'] === $_GET['pid'])
-          continue;
-      }
       $products[] = $product;
     };
   }
