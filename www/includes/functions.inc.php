@@ -158,7 +158,7 @@ function readUsers()
   return $users;
 }
 
-function readProducts()
+function read_Filter_Products()
 {
   $products = [];
   $handle = fopen('..\database\products.db', 'r');
@@ -188,12 +188,18 @@ function readProducts()
           continue;
         }
       };
+      if (isset($_GET['pid']) && !empty($_GET['pid'])) {
+        if ($product['pid'] === $_GET['pid'])
+          continue;
+      }
       $products[] = $product;
     };
   }
   fclose($handle);
   return $products;
 }
+
+function readProduct
 
 function displayProduct($name, $price, $image)
 {
