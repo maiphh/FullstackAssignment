@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Shipper</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
 <?php
-  include_once "header.php"
-    ?>
+include_once "header.php";
+
+include_once (__DIR__ / '\includes\functions.inc.php');
+
+$products = readProducts();
+  ?>
 
   <!-- Order Headings -->
 
-  <main>
+
     <div class="orderlist">
       <img class="productpic" src="database\images\product-images\test.jpg" alt="product pic">
       <h1>
-        <a href="productsDetail.php">Product name</a>  <!-- Product needs data input (meaning linked to the database) -->
+        <a href="productDetail.php">Product name</a>  <!-- Product needs data input (meaning linked to the database) -->
       </h1>
       <p>$599</p> <!-- Order price needs data input (meaning linked to the database) -->
     </div>
@@ -35,8 +29,6 @@
     </div>
 
 
-  </main>
+ 
 
 
-</body>
-</html>
