@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
 
   $username = $_POST['username'];
   $pwd = $_POST['pwd'];
@@ -9,26 +9,27 @@ if(isset($_POST['submit'])) {
 
   $users = readUsers();
 
-  if(emptyInput($username) !== false) {
+  if (emptyInput($username) !== false) {
     header('location:../login.php?error=emptyUsername');
     exit();
   }
 
-  if(emptyInput($pwd) !== false) {
+  if (emptyInput($pwd) !== false) {
     header('location:../login.php?error=emptyPassword');
     exit();
   }
 
-  if(usernameExist($username) === false) {
+  if (usernameExist($username) === false) {
     header('location:../login.php?error=usernameNotExisted');
     exit();
   }
 
-  foreach($users as $user) {
+  foreach ($users as $user) {
 
-    $checkPwd = password_verify($pwd,$user[2]);
-    if($user[1]==$username && $checkPwd) {
+    $checkPwd = password_verify($pwd, $user[2]);
+    if ($user[1] == $username && $checkPwd) {
       session_start();
+      $_SESSION = array();
       $_SESSION['ID'] = $user[0];
       $_SESSION['username'] = $username;
       $_SESSION['pwd'] = $user[2];
@@ -45,18 +46,7 @@ if(isset($_POST['submit'])) {
 
   header('location:../login.php?error=wrongLogin');
   exit();
-
-
-
-
-
-}
-else {
+} else {
   header('location:../login.php');
   exit();
 }
-
-
-
-
- ?>
