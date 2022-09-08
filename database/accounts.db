@@ -5,3 +5,4 @@ id,username,pwd,profilepic,address,bname,baddress,hub,type
 4,fullstack12345,$2y$10$/xgQitpFhPYTrbYJ0ky/E.VJdGv7mEgUEiI54szpa1tkWloijR/ky,"..\database\images\default.png",,dsadsad,dsadsadsa,,V
 5,Fullstack1234,$2y$10$wGl1/hRRfs7moyAiFvImZ.CYwqLh2HmKBe2EndrKBWNGe9naA3Jwa,"..\database\images\5.png","asdijfklj kjalkfjd",,,,C
 6,Fullstack123,$2y$10$tQgAjRMzeDYJh2r8IV7DeOYBAyfYpjhOO1EIOAzX5BPr97G7APrXO,"..\database\images\6.png",ádfsdff,,,,C
+7,fullstack123456,$2y$10$9.QcS5PJnk60wCl3u7d6MeS2PikH6hTEtZDYFHiVthZhMXfpr6ZB6,"..\database\images\default.png",,fdasfads,fdasfdasf,,V

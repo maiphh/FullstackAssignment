@@ -158,6 +158,20 @@ function readUsers()
   return $users;
 }
 
+function readProducts() {
+  $products=[];
+  $handle = fopen('..\database\products.db','r');
+  $header = fgetcsv($handle);
+  while(!feof($handle)) {
+    $product = fgetcsv($handle);
+    if($product!=null) {
+    $products[] = $product;
+  }
+  }
+  fclose($handle);
+  return $products;
+}
+
 function read_filter_products()
 {
   $products = [];
@@ -325,13 +339,13 @@ function display_product_cart($pID, $name, $price, $image, $quantity)
         <div class="product-price">
           <p>$price$</p>
         </div>
-        
+
         <div class="product-quantity">
           <p>$quantity</p>
         </div>
 
     </div>
-    
+
     <form method="post" action="cart.php" class="cart-btn">
     <input type="submit" value="Delete">
     <input type="hidden" name="pID" value="$pID">
