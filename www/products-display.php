@@ -3,7 +3,7 @@
 
     <?php
     foreach ($products as $product) {
-      displayProduct($product['name'], $product['price'], $product['image']);
+      displayProduct($product['pID'], $product['name'], $product['price'], $product['image']);
     }
     ?>
 

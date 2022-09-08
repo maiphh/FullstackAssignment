@@ -1,8 +1,9 @@
 <?php
+// Include the header
 include_once 'header.php';
 
-// Include Main-content.php
+// Include main content of index 
 include_once 'main-content.php';
 
-// Footer
+// Include the footer
 include_once 'footer.php';

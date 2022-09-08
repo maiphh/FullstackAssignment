@@ -195,28 +195,9 @@ function read_filter_products()
   return $products;
 }
 
-function read_product_id($id_list)
-{
-  $products = [];
-  $handle = fopen('..\database\products.db', 'r');
-  $first = fgetcsv($handle);
-  while ($row = fgetcsv($handle)) {
-    $i = 0;
-    $product = [];
-    foreach ($first as $col_name) {
-      $product[$col_name] = $row[$i];
-      $i++;
-      if ($product != null) {
-        if ($id_list[$i] === $product['Pid']) {
-          continue;
-        }
-        $products[] = $product;
-      }
-    }
-  }
-}
 
-function displayProduct($name, $price, $image)
+
+function displayProduct($pID, $name, $price, $image)
 {
   echo <<<HEREDOC
   <div class="product">
@@ -230,19 +211,23 @@ function displayProduct($name, $price, $image)
       <div class="product-name">
       <p>$name</p>
       </div>
-<div>
+  <div>
       <div class="product-price">
         <p>$price$</p>
       </div>
 
-      <div class="product-addtocart">
-        <button type="button" class="ti-shopping-cart"></button>
-      </div>
-</div>
+      <form action="index.php" method="post">
+            <input type="number" name="quantity" value="1" placeholder="1">
+            <input type="hidden" name="pID" value="$pID">
+            <input type="submit" value="Add To Cart" class="ti-shopping-cart">
+      </form>
+  </div>
     </div>
   </div>
-HEREDOC;
+  HEREDOC;
 }
+
+
 
 function viewProduct($pID, $ID, $name, $price, $image, $des)
 {
@@ -272,3 +257,107 @@ function emptyInput($data)
   }
   return false;
 }
+
+//----------------------------------------------------------------
+// Cart Related Functions
+//----------------------------------------------------------------
+
+// Add to Cart Function
+function add_to_cart()
+{
+  if (isset($_POST['pID'], $_POST['quantity']) && is_numeric($_POST['pID']) && is_numeric($_POST['quantity'])) {
+    $product_id = $_POST['pID'];
+    $product_quantity = $_POST['quantity'];
+    if (isset($_SESSION['cart'])) {
+      if (array_key_exists($product_id, $_SESSION['cart'])) {
+        $_SESSION['cart'][$product_id] += $product_quantity;
+      } else {
+        $_SESSION['cart'][$product_id] = $product_quantity;
+      }
+    } else {
+      $_SESSION['cart'] = array($product_id => $product_quantity);
+    }
+  }
+}
+
+// Read from product list base on cart
+function read_product_cart($cart)
+{
+  $products = [];
+  $handle = fopen('..\database\products.db', 'r');
+  $first = fgetcsv($handle);
+  while ($row = fgetcsv($handle)) {
+    $i = 0;
+    $product = [];
+    foreach ($first as $col_name) {
+      $product[$col_name] = $row[$i];
+      $i++;
+    }
+    if ($product != null) {
+      if (array_key_exists(intval($product['pID']), $cart)) {
+        $products[] = $product;
+      }
+    }
+    if (count($products) === count($cart)) {
+      break;
+    }
+  }
+  fclose($handle);
+  return $products;
+}
+
+// Display product for cart page
+function display_product_cart($pID, $name, $price, $image, $quantity)
+{
+  echo <<<HEREDOC
+  <div class="product-cart">
+
+    <div class="product-image">
+      <img src=$image alt="">
+    </div>
+
+    <div class="product-info">
+
+        <div class="product-name">
+        <p>$name</p>
+        </div>
+
+        <div class="product-price">
+          <p>$price$</p>
+        </div>
+        
+        <div class="product-quantity">
+          <p>$quantity</p>
+        </div>
+
+    </div>
+    
+    <form method="post" action="cart.php" class="cart-btn">
+    <input type="submit" value="Delete">
+    <input type="hidden" name="pID" value="$pID">
+    </form>
+  </div>
+  HEREDOC;
+}
+
+// Delete a product from the cart
+function delete_cart()
+{
+  if (isset($_POST['pID'])) {
+    if (!empty($_SESSION['cart'])) {
+      unset($_SESSION['cart'][intval($_POST['pID'])]);
+    }
+  }
+}
+
+// Delete everything in cart
+function clear_cart()
+{
+  if (isset($_POST['clear'])) {
+    echo print_r('wor');
+    $_SESSION['cart'] = [];
+  }
+}
+
+//----------------------------------------------------------------
+//----------------------------------------------------------------
