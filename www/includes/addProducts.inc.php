@@ -82,7 +82,7 @@ function uploadProductImage($productpic,$pid) {
             header('location:../addProducts.php?msg='.$msg);
 }
         else {
-        $msg = $error['name'].'<br>'. $error['price'].'<br>'.$error['description'].'<br>';
+        $msg = $error['name'].'<br>'. $error['price'].'<br>'.$error['description'];
         header('location:../addproducts.php?msg='.$msg);
 }
 }

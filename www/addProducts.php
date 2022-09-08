@@ -19,10 +19,11 @@
 
                     <div class="signupinput">
                       <input type="text"  name="name" placeholder="Product Name" id="pname">
+                      <small></small>
                     </div>
 
                     <div class="signupinput">
-                      <input type="text"  name="price" placeholder="Product Price" id="price">
+                      <input type="text"  name="price" placeholder="Product Price" id="pprice">
                     </div>
 
                     <textarea id="pdes" name="description" placeholder="Description"  maxlength="500"></textarea>
@@ -31,7 +32,7 @@
 
                         <div class = "form-button">
                             <!-- <button id='submit'type="submit" name="act2" >Add</button> -->
-                              <button type="submit" name="addproduct">Add Product</button>
+                              <button type="submit" name="addproduct" id='submit'>Add Product</button>
                         </div>
                             <p>
                                 <?php
@@ -43,6 +44,6 @@
             </div>
         </div>
     </div>
-    <script src="validate.js"></script>
+    <script src="validateProduct.js"></script>
     </body>
 </html>
