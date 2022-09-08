@@ -24,7 +24,7 @@ $products = read_filter_products();
     <?php
     foreach ($products as $product) {
       if ($product[1] == $_SESSION['ID']) {
-        viewProduct($product[0], $product[1], $product[2], $product[3], $product[4], $product[5]);
+        viewProduct($product['pID'], $product['ID'], $product['name'], $product['price'], $product['image'], $product['des']);
       }
     }
     ?>
