@@ -1,5 +1,14 @@
-<body>
+
   <div class="footer wrapper">
+    <div class="footer-nav">
+  <ul>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms</a></li>
+    <li><a href="#">Copyright</a></li>
+    <li><a href="contact.php">Contact Us</a></li>
+  </ul>
+</div>
     <p class="copyright text-center">2022 All rights reserved, Lazada Prototype. Developed by <a href="#">Khoa Nguyen</a>,
       <a href="#">Phu Mai</a>, <a href="#">Ngoc Linh</a>, <a href="#">Long Nguyen</a>
     </p>

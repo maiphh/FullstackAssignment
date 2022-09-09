@@ -543,7 +543,7 @@ border-bottom-right-radius: 30px;
 .product-display{
   display: grid;
   grid-template-columns: auto auto auto;
-  row-gap: 50px;
+  row-gap: 100px;
 }
 
 
@@ -588,21 +588,38 @@ border-bottom-right-radius: 30px;
 }
 
 .product-display .product .product-addtocart {
-margin-left: 200px;
-display: inline-block;
-width: 30px;
-height: 30px;
-background-color: black;
-border-radius: 3px;
-text-align: center;
+  margin-left: 240px;
+      width: 40px;
+      height: 40px;
+      background-color: black;
+      border-radius: 4px;
+      text-align: center;
+      margin-top: -42px;
+      line-height: 40px;
 }
 
-.product-display .product .product-addtocart a {
+.product .product-addtocart button{
+  background-color: black;
+
+}
+
+.product-display .product .product-addtocart i {
 font-size: 20px;
 text-decoration: none;
 color: white;
-
+line-height: 27px;
 }
+
+.quantity-input input {
+  width: 180px;
+  margin-left: 0;
+  margin-top: 29px;
+}
+
+.add-to-cart-container{
+  margin-top: -20px;
+}
+
 @media (max-width:1190px) {
   .main-content {
     margin-left: 10%;
@@ -614,6 +631,7 @@ color: white;
   .product-display{
     grid-template-columns: auto auto;
   }
+
 }
 
 @media (max-width:767px) {
@@ -680,9 +698,14 @@ width: 300px;
   margin-top: 30px;
 }
 
+.float-r {
+  float: right;
+
+}
+
 @media (max-width: 1350px) {
   .product-detail{
-    grid-template-columns: 270px 500px;
+    grid-template-columns: 310px  500px;
   }
   .product-detail-text h2,
   .product-detail-text p {
@@ -694,6 +717,24 @@ width: 300px;
 .product-detail{
   grid-template-columns: 300px;
   width: 300px;
+  height: 650px;
+}
+.float-r{
+  grid-row-start: 1;
+  grid-row-end:2;
+}
+.product-detail-container button {
+  float:none;
+  margin-right: 0;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.input-btn-container{
+  display: grid;
+width: 300px;
+align-items: center;
+justify-content: center;
 }
 
 .product-detail-text{
@@ -758,3 +799,282 @@ width: 300px;
 .myAccount-form-container textarea{
     width: 350px;
   }
+}
+
+/* Fiter */
+.search-filters .filter input{
+  margin-left: 0;
+
+}
+
+.filter-btn {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.filter-btn input{
+  background-color:#1949f4;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 35px;
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  border-radius: 30px;
+  text-transform: uppercase;
+}
+
+
+/* Cart */
+
+.delete-btn {
+width: 760px;
+}
+
+.delete-btn form {
+  float: right;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.delete-btn input{
+  background-color: var(--bs-danger);
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 8px 30px;
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  border-radius: 30px;
+  text-transform: uppercase;
+}
+
+.product-cart {
+  margin-bottom: 50px;
+}
+
+.cancel-cart input {
+  background-color: var(--bs-danger);
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 8px 30px;
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  float:right;
+}
+
+.cart-checkout-container .checkout-btn button{
+  float:right;
+  margin-right: 300px;
+  background-color: #1949F4;
+  color: white;
+  text-decoration: none;
+font-size: 12px;
+  font-weight: 600;
+  padding: 8px 50px;
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  border-radius: 30px;
+    text-transform: uppercase;
+    margin-left: 30px;
+
+}
+@media (max-width: 1400px) {
+  .delete-btn {
+  width: 650px;
+  }
+}
+
+
+@media (max-width: 1100px) {
+  .delete-btn {
+  width: 600px;
+  }
+}
+@media (max-width: 1023px) {
+  .delete-btn {
+  width: 300px;
+  }
+  .delete-btn form {
+    float: right;
+    margin-right: -10px;
+    margin-bottom: 20px;
+  }
+  .cancel-cart input {
+      grid-row-start: 1;
+      grid-row-end:2;
+      margin-right: 15px;
+      margin-top: 15px;
+    }
+    .cart-checkout-container .checkout-btn button{
+      float:none;
+      margin-right: 0;
+      grid-row-start: 2;
+      grid-row-end: 3;
+      margin-left: 0;
+    }
+  }
+
+
+/* footer */
+.footer-nav{
+  margin-top: 100px;
+}
+
+.footer-nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-nav ul li {
+  display: inline-block;
+  line-height: 100px;
+}
+
+.footer-nav ul li a {
+  font-size: 16px;
+  margin: 0 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+
+}
+
+.footer-nav ul li a:hover {
+  opacity: 0.6;
+  transition: 0.5s;
+}
+
+@media (max-width :960px) {
+.footer-nav ul li a {
+    font-size: 12px;
+    margin: 0 15px;
+}
+
+}
+
+@media (max-width :600px) {
+.footer-nav ul li a {
+    font-size: 8px;
+    margin: 0 5px;
+}
+}
+/* Contact Page */
+.contact {
+  margin-top: 80px;
+  margin: 50px 11%;
+}
+
+.contact h1 {
+  color: var(--yellow);
+    font-family: 'Ibarra Real Nova', serif;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
+#fullname, select, textarea, #email,#phone{
+  width: 84%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 25px;
+  resize: vertical;
+
+}
+
+.note-area #note {
+  width: 100%;
+}
+
+form label,p {
+  color: var(--yellow)
+}
+
+.checkbox-input {
+  color: black;
+  margin-right: 15px;
+}
+
+
+
+.radio-input {
+  color: black;
+  margin-right: 50px;
+}
+
+
+
+.input-contact-way, .recieve-newsletter {
+  margin: 15px 0;
+}
+
+.input-submit, .input-reset {
+  display: inline-block;
+
+}
+
+.btn {
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#submit-btn {
+  background-color:#1949F4;
+  padding: 15px 40px;
+  cursor: pointer;
+  color:white;
+}
+
+#reset-btn {
+  background-color: #c9c9c9;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.inputfield {
+  float: right;
+}
+
+.input-purpose, .input-name, .input-email, .input-phone {
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 25px;
+}
+
+.input-phone label, .input-email label, .input-purpose label, .input-name label{
+  line-height: 50px;
+
+
+}
+
+@media (max-width:960px) {
+  #fullname, select, textarea, #email,#phone {
+    width: 100%;
+  }
+
+  .input-phone label, .input-email label, .input-purpose label, .input-name label{
+    line-height: 0;
+  }
+
+  .input-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

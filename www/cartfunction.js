@@ -27,6 +27,7 @@ function addToCart(pID,ID,name,price,image,des,quantity) {
     jsonProducts = JSON.stringify(products);
     localStorage.setItem(uid,jsonProducts);
   }
+  alert("Add Product Successfully!")
 }
 
 
@@ -55,7 +56,7 @@ function readLocalStorage() {
   return products;
 }
 
-function pushToUrl () {
+function pushToUrl() {
   for (var i = 0; i < localStorage.length; i++) {
       if ('4' == localStorage.key(i)) {
           const storedcart = JSON.parse(localStorage.getItem('4'));

@@ -29,6 +29,7 @@ session_start();
       if (isset($_SESSION['type'])) {
         if ($_SESSION['type'] == 'C') {
           echo '<li><a href="myAccount.php">My Account</a></li>';
+          echo '<li onclick="pushToUrl()"><a href=#>Shopping Cart</a></li>';
           echo '<li onclick= "deleteCookie()"><a href="includes/logout.inc.php">Logout</a></li>';
         } elseif ($_SESSION['type'] == 'V') {
           echo '<li><a href="viewProduct.php">View My Product</a></li>';

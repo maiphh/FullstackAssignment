@@ -275,15 +275,16 @@ function displayProduct($pID,$ID,$name,$price,$image,$des) {
       <div class="product-price">
         <p>$price$</p>
       </div>
-      <div class="quantity-input">
-              <input type="number" name="quantity" value="1" placeholder="1" id = "quantity$pID">
-              <input type="hidden" name="pID" value="$pID">
-      </div>
-                    <div class="product-addtocart">
-                      <button onclick = "addToCart($pID,$ID,'$name',$price,'$image','$des',getQuantity($pID))"><i class="ti-shopping-cart"></i></button>
-                    </div>
 
-
+</div>
+<div class="add-to-cart-container">
+<div class="quantity-input signupinput">
+        <input type="number" name="quantity" value="1" placeholder="1" id = "quantity$pID">
+        <input type="hidden" name="pID" value="$pID">
+        <div class="product-addtocart ">
+          <button onclick = "addToCart($pID,$ID,'$name',$price,'$image','$des',getQuantity($pID))"><i class="ti-shopping-cart"></i></button>
+        </div>
+</div>
 
 </div>
     </div>
@@ -375,33 +376,29 @@ function read_product_cart($cart)
 function display_product_cart($pID, $name, $price, $image, $quantity)
 {
   echo <<<HEREDOC
-  <div class="product-cart">
+  <div class="product-detail product-cart">
 
-    <div class="product-image">
-      <img src=$image alt="">
-    </div>
-
-    <div class="product-info">
-
-        <div class="product-name">
-        <p>$name</p>
-        </div>
-
-        <div class="product-price">
-          <p>$price$</p>
-        </div>
-
-        <div class="product-quantity">
-          <p>$quantity</p>
-        </div>
-
-    </div>
-
-    <form method="post" action="cart.php" class="cart-btn">
-    <input type="submit" value="Delete">
-    <input type="hidden" name="pID" value="$pID">
-    </form>
+  <div class="product-detail-img">
+    <img src="$image" alt="Product img">
   </div>
+
+  <div class="product-detail-text">
+    <h2>Name: </h2> <p> $name</p> <br>
+    <h2>Price: </h2> <p> $price$</p><br>
+    <h2>Quantity: </h2> <p>$quantity</p>
+  </div>
+
+
+  <div class = "delete-btn input-btn-container">
+  <form method="post" action="cart.php" class="cart-btn">
+  <input type="submit" value="Remove">
+  <input type="hidden" name="pID" value="$pID">
+  </form>
+  </div>
+    </div>
+
+
+
   HEREDOC;
 }
 
