@@ -93,7 +93,7 @@ margin-top: 10px;
 }
 
 nav ul li a:hover {
-  background-color: var(--grey);
+  opacity: 0.6;
   color: #e8e8e8;
   transition: 0.5s;
 }
@@ -517,9 +517,9 @@ border-bottom-right-radius: 30px;
   .ma-info p {
     font-size: 16px;
   }
-  .ma-info div{
+  /* .ma-info div{
     margin-top: 12Spx;
-  }
+  } */
 }
 
 /* Index  */
@@ -840,7 +840,7 @@ width: 760px;
 }
 
 .delete-btn input{
-  background-color: var(--bs-danger);
+  background-color: #D23D24;
   color: white;
   text-decoration: none;
   font-size: 12px;
@@ -858,7 +858,7 @@ width: 760px;
 }
 
 .cancel-cart input {
-  background-color: var(--bs-danger);
+  background-color: #D23D24;
   color: white;
   text-decoration: none;
   font-size: 12px;
@@ -978,7 +978,7 @@ font-size: 12px;
 }
 
 .contact h1 {
-  color: var(--yellow);
+
     font-family: 'Ibarra Real Nova', serif;
     font-size: 30px;
     text-align: center;
@@ -1002,9 +1002,7 @@ font-size: 12px;
   width: 100%;
 }
 
-form label,p {
-  color: var(--yellow)
-}
+
 
 .checkbox-input {
   color: black;
@@ -1029,7 +1027,7 @@ form label,p {
 
 }
 
-.btn {
+.input-button .btn {
   padding: 15px;
   border-radius: 4px;
 }
