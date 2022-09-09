@@ -3,7 +3,7 @@
 include_once 'includes\functions.inc.php';
 
 // Set variable products as the products list from products.db
-$products = read_filter_products();
+$products = readProducts();
 
 // Check if users add anything to cart
 add_to_cart();
@@ -26,5 +26,7 @@ add_to_cart();
   // Include script for storing localStorage
   include_once 'includes\store-local.inc.php';
   ?>
+
+
 
 </div>

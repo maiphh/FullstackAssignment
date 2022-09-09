@@ -158,6 +158,37 @@ function readUsers()
   return $users;
 }
 
+function readProducts() {
+  $products=[];
+  $handle = fopen('..\database\products.db','r');
+  $header = fgetcsv($handle);
+  while(!feof($handle)) {
+    $product = fgetcsv($handle);
+    if($product!=null) {
+      if (isset($_GET['min_price']) && is_numeric($_GET['min_price'])) {
+        if ($product[3] <= $_GET['min_price']) {
+          continue;
+        }
+      };
+      if (isset($_GET['max_price']) && is_numeric($_GET['max_price'])) {
+        if ($product[3] >= $_GET['max_price']) {
+          continue;
+        }
+      };
+      if (isset($_GET['name']) && !empty($_GET['name'])) {
+        $haystack = strtolower($product[2]);
+        $needle = strtolower($_GET['name']);
+        if (strpos($haystack, $needle) === false) {
+          continue;
+        }
+      }
+    $products[] = $product;
+  }
+  }
+  fclose($handle);
+  return $products;
+}
+
 function read_filter_products()
 {
   $products = [];
@@ -196,14 +227,43 @@ function read_filter_products()
 }
 
 
+//
+// function displayProduct($pID, $name, $price, $image)
+// {
+//   echo <<<HEREDOC
+//   <div class="product">
+//
+//   <div class="product-image">
+//     <img src=$image alt="">
+//   </div>
+//
+//     <div class="product-info">
+//
+//       <div class="product-name">
+//       <p>$name</p>
+//       </div>
+//   <div>
+//       <div class="product-price">
+//         <p>$price$</p>
+//       </div>
+//
+//       <form action="index.php" method="post">
+//             <input type="number" name="quantity" value="1" placeholder="1">
+//             <input type="hidden" name="pID" value="$pID">
+//             <input type="submit" value="Add To Cart" class="ti-shopping-cart">
+//       </form>
+//   </div>
+//     </div>
+//   </div>
+//   HEREDOC;
+// }
 
-function displayProduct($pID, $name, $price, $image)
-{
+function displayProduct($pID,$ID,$name,$price,$image,$des) {
   echo <<<HEREDOC
   <div class="product">
 
   <div class="product-image">
-    <img src=$image alt="">
+   <a href="productDetail.php?pID=$pID&ID=$ID&name=$name&price=$price&image=$image&des=$des"><img src=$image alt="product"></a>
   </div>
 
     <div class="product-info">
@@ -211,20 +271,26 @@ function displayProduct($pID, $name, $price, $image)
       <div class="product-name">
       <p>$name</p>
       </div>
-  <div>
+<div class="price-btn">
       <div class="product-price">
         <p>$price$</p>
       </div>
 
-      <form action="index.php" method="post">
-            <input type="number" name="quantity" value="1" placeholder="1">
-            <input type="hidden" name="pID" value="$pID">
-            <input type="submit" value="Add To Cart" class="ti-shopping-cart">
-      </form>
-  </div>
+</div>
+<div class="add-to-cart-container">
+<div class="quantity-input signupinput">
+        <input type="number" name="quantity" value="1" placeholder="1" id = "quantity$pID">
+        <input type="hidden" name="pID" value="$pID">
+        <div class="product-addtocart ">
+          <button onclick = "addToCart($pID,$ID,'$name',$price,'$image','$des',getQuantity($pID))"><i class="ti-shopping-cart"></i></button>
+        </div>
+</div>
+
+</div>
     </div>
   </div>
-  HEREDOC;
+
+HEREDOC;
 }
 
 
@@ -310,33 +376,29 @@ function read_product_cart($cart)
 function display_product_cart($pID, $name, $price, $image, $quantity)
 {
   echo <<<HEREDOC
-  <div class="product-cart">
+  <div class="product-detail product-cart">
 
-    <div class="product-image">
-      <img src=$image alt="">
-    </div>
-
-    <div class="product-info">
-
-        <div class="product-name">
-        <p>$name</p>
-        </div>
-
-        <div class="product-price">
-          <p>$price$</p>
-        </div>
-        
-        <div class="product-quantity">
-          <p>$quantity</p>
-        </div>
-
-    </div>
-    
-    <form method="post" action="cart.php" class="cart-btn">
-    <input type="submit" value="Delete">
-    <input type="hidden" name="pID" value="$pID">
-    </form>
+  <div class="product-detail-img">
+    <img src="$image" alt="Product img">
   </div>
+
+  <div class="product-detail-text">
+    <h2>Name: </h2> <p> $name</p> <br>
+    <h2>Price: </h2> <p> $price$</p><br>
+    <h2>Quantity: </h2> <p>$quantity</p>
+  </div>
+
+
+  <div class = "delete-btn input-btn-container">
+  <form method="post" action="cart.php" class="cart-btn">
+  <input type="submit" value="Remove">
+  <input type="hidden" name="pID" value="$pID">
+  </form>
+  </div>
+    </div>
+
+
+
   HEREDOC;
 }
 
@@ -357,6 +419,10 @@ function clear_cart()
     echo print_r('wor');
     $_SESSION['cart'] = [];
   }
+}
+
+function delelteCookie() {
+
 }
 
 //----------------------------------------------------------------

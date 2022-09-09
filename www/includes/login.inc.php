@@ -39,6 +39,8 @@ if (isset($_POST['submit'])) {
       $_SESSION['baddress'] = $user[6];
       $_SESSION['hub'] = $user[7];
       $_SESSION['type'] = $user[8];
+      $_SESSION['justlogin'] = true;
+      $_SESSION['cart'] = [];
       header('location:../index.php');
       exit();
     }

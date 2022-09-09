@@ -29,15 +29,16 @@ session_start();
       if (isset($_SESSION['type'])) {
         if ($_SESSION['type'] == 'C') {
           echo '<li><a href="myAccount.php">My Account</a></li>';
-          echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
+          echo '<li onclick="pushToUrl()"><a href=#>Shopping Cart</a></li>';
+          echo '<li onclick= "deleteCookie()"><a href="includes/logout.inc.php">Logout</a></li>';
         } elseif ($_SESSION['type'] == 'V') {
           echo '<li><a href="viewProduct.php">View My Product</a></li>';
-          echo '<li><a href="addProduct.php">Add Product</a></li>';
+          echo '<li><a href="addProducts.php">Add Product</a></li>';
           echo '<li><a href="myAccount.php">My Account</a></li>';
-          echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
+          echo '<li onclick= "deleteCookie()"><a href="includes/logout.inc.php">Logout</a></li>';
         } elseif ($_SESSION['type'] == 'S') {
           echo '<li><a href="myAccount.php">My Account</a></li>';
-          echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
+          echo '<li onclick="deleteCookie()"><a href="includes/logout.inc.php">Logout</a></li>';
         }
       } else {
         echo '<li><a class="signin signin-btn" href="login.php">Sign in</a></li>';
