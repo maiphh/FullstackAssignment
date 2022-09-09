@@ -27,4 +27,6 @@ add_to_cart();
   include_once 'includes\store-local.inc.php';
   ?>
 
+
+
 </div>

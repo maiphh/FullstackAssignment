@@ -275,13 +275,14 @@ function displayProduct($pID,$ID,$name,$price,$image,$des) {
       <div class="product-price">
         <p>$price$</p>
       </div>
-      <form action="index.php" method="post">
-              <input type="number" name="quantity" value="1" placeholder="1">
+      <div class="quantity-input">
+              <input type="number" name="quantity" value="1" placeholder="1" id = "quantity$pID">
               <input type="hidden" name="pID" value="$pID">
+      </div>
                     <div class="product-addtocart">
-                      <a href="#"><i class="ti-shopping-cart"></i></a>
+                      <button onclick = "addToCart($pID,$ID,'$name',$price,'$image','$des',getQuantity($pID))"><i class="ti-shopping-cart"></i></button>
                     </div>
-       </form>
+
 
 
 </div>
@@ -421,6 +422,10 @@ function clear_cart()
     echo print_r('wor');
     $_SESSION['cart'] = [];
   }
+}
+
+function delelteCookie() {
+
 }
 
 //----------------------------------------------------------------

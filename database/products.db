@@ -5,4 +5,4 @@ pID,ID,name,price,image,description
 4,1,iphone7,599,"..\database\product-images\test.jpg",This is an Iphone
 5,2,iphone4,599,"..\database\product-images\test.jpg",This is an Iphone
 6,3,iphone1,5999,"..\database\product-images\test.jpg",This is an Iphone
-7,4,,,"..\database\product-images\7.jpg",
+7,4,"Phu Maiiiii",100,"..\database\product-images\7.png",dsadsadad

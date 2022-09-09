@@ -4,6 +4,18 @@ include_once 'includes/functions.inc.php';
 delete_cart();
 clear_cart();
 $products = read_product_cart($_SESSION['cart']);
+
+// if ($_SESSION['justlogin'] == true) {
+  $cartQuantityList = explode(',',$_GET['cartQuantityList']);
+  $cartIdList = explode(',', $_GET['cartIdList']);
+  $i = 0;
+  echo 'work';
+  foreach ($cartIdList as $id) {
+    $_SESSION['cart'][$id] = $cartQuantityList[$i];
+  }
+  $_SESSION['justlogin'] = false;
+// }
+
 ?>
 <div class="main-content">
     <div class="cancel-cart">
@@ -19,7 +31,12 @@ $products = read_product_cart($_SESSION['cart']);
     ?>
 </div>
 <?php
-include_once 'includes/savetolocalstorage.inc.php';
+
 // Footer
 include_once 'footer.php';
+
+if ($_SESSION['count']==0) {
+  header("Refresh:0");
+  $_SESSION['count']=1;
+}
 ?>

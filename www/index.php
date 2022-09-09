@@ -1,8 +1,8 @@
 <?php
 // Include the header
 include_once 'header.php';
-
-// Include main content of index 
+$_SESSION['count']=0;
+// Include main content of index
 include_once 'main-content.php';
 
 // Include the footer
