@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
       $_SESSION = array();
       $_SESSION['ID'] = $user[0];
       $_SESSION['username'] = $username;
-      $_SESSION['pwd'] = $user[2];
+      $_SESSION['pwd'] = $user[2];s
       $_SESSION['profilepic'] = $user[3];
       $_SESSION['address'] = $user[4];
       $_SESSION['bname'] = $user[5];
