@@ -158,13 +158,14 @@ function readUsers()
   return $users;
 }
 
-function readProducts() {
-  $products=[];
-  $handle = fopen('..\database\products.db','r');
+function readProducts()
+{
+  $products = [];
+  $handle = fopen('..\database\products.db', 'r');
   $header = fgetcsv($handle);
-  while(!feof($handle)) {
+  while (!feof($handle)) {
     $product = fgetcsv($handle);
-    if($product!=null) {
+    if ($product != null) {
       if (isset($_GET['min_price']) && is_numeric($_GET['min_price'])) {
         if ($product[3] <= $_GET['min_price']) {
           continue;
@@ -182,8 +183,8 @@ function readProducts() {
           continue;
         }
       }
-    $products[] = $product;
-  }
+      $products[] = $product;
+    }
   }
   fclose($handle);
   return $products;
@@ -258,7 +259,8 @@ function read_filter_products()
 //   HEREDOC;
 // }
 
-function displayProduct($pID,$ID,$name,$price,$image,$des) {
+function displayProduct($pID, $ID, $name, $price, $image, $des)
+{
   echo <<<HEREDOC
   <div class="product">
 
@@ -391,7 +393,7 @@ function display_product_cart($pID, $name, $price, $image, $quantity)
 
   <div class = "delete-btn input-btn-container">
   <form method="post" action="cart.php" class="cart-btn">
-  <input type="submit" value="Remove">
+  <input onclick="removeFromCart($pID)" type="submit" value="Remove">
   <input type="hidden" name="pID" value="$pID">
   </form>
   </div>
@@ -421,9 +423,15 @@ function clear_cart()
   }
 }
 
-function delelteCookie() {
-
+function if_in_cart()
+{
+  echo print_r($_SESSION['count']);
+  $haystack = $_SERVER['PHP_SELF'];
+  $needle = "cart.php";
+  if (!strpos($haystack, $needle)) {
+    echo 'not cart';
+    $_SESSION['count'] = 0;
+  }
 }
-
 //----------------------------------------------------------------
 //----------------------------------------------------------------

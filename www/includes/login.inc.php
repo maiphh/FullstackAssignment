@@ -41,6 +41,7 @@ if (isset($_POST['submit'])) {
       $_SESSION['type'] = $user[8];
       $_SESSION['justlogin'] = true;
       $_SESSION['cart'] = [];
+      $_SESSION['count'] = 0;
       header('location:../index.php');
       exit();
     }
