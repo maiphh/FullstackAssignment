@@ -217,38 +217,6 @@ function read_filter_products()
   return $products;
 }
 
-
-//
-// function displayProduct($pID, $name, $price, $image)
-// {
-//   echo <<<HEREDOC
-//   <div class="product">
-//
-//   <div class="product-image">
-//     <img src=$image alt="">
-//   </div>
-//
-//     <div class="product-info">
-//
-//       <div class="product-name">
-//       <p>$name</p>
-//       </div>
-//   <div>
-//       <div class="product-price">
-//         <p>$price$</p>
-//       </div>
-//
-//       <form action="index.php" method="post">
-//             <input type="number" name="quantity" value="1" placeholder="1">
-//             <input type="hidden" name="pID" value="$pID">
-//             <input type="submit" value="Add To Cart" class="ti-shopping-cart">
-//       </form>
-//   </div>
-//     </div>
-//   </div>
-//   HEREDOC;
-// }
-
 function displayProduct($pID, $ID, $name, $price, $image, $des)
 {
   echo <<<HEREDOC
@@ -418,7 +386,8 @@ function displayOrderDetail($pID, $name, $price, $image, $quantity)
   HEREDOC;
 }
 
-function displayOrders($oid) {
+function displayOrders($oid)
+{
   echo <<<HEREDOC
   <div class="product-detail order">
 
@@ -436,7 +405,8 @@ function displayOrders($oid) {
 HEREDOC;
 }
 
-function displayMyOrder($oid,$status) {
+function displayMyOrder($oid, $status)
+{
   echo <<<HEREDOC
   <div class="product-detail order">
 
@@ -526,7 +496,7 @@ function check_out()
     $oid = count($orders) - 1;
     $hub = strval(random_int(1, 3));
     $order_file = fopen('..\database\orders.db', 'a');
-    $order = array($oid, $uid, $name, $address,$hub, 'a');
+    $order = array($oid, $uid, $name, $address, $hub, 'a');
     fputcsv($order_file, $order);
     fclose($order_file);
 

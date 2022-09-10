@@ -111,16 +111,3 @@ function pushToUrl() {
         }
     }
 }
-
-// funtcion readUserCart() {
-//   ID = localStorage.getItem("id");
-//   if(localStorage.getItem('userCart')!=null){
-//   userCarts = JSON.parse(localStorage.getItem('userCart'));
-//   userCarts.every(function(userCart) {
-//     if(userCart[0]==ID) {
-//       products = userCart[1];
-//       // products = JSON.parse(localStorage.getItem('cart'));
-//       return products;
-//     }})}
-//   }
-// }
