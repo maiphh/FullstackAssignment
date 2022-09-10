@@ -146,17 +146,7 @@ function createShipper($id, $username, $pwd, $profilepic, $hub)
   fputcsv($handle, $new_user);
 }
 
-function get_list_from_file($filepath)
-{
-  $list = [];
-  $handle = fopen($filepath, 'r');
-  while (!feof($handle)) {
-    $item = fgetcsv($handle);
-    $list[] = $item;
-  }
-  fclose($handle);
-  return $list;
-}
+
 
 function readProducts()
 {
@@ -404,6 +394,48 @@ function display_product_cart($pID, $name, $price, $image, $quantity)
   HEREDOC;
 }
 
+function displayOrderDetail($pID, $name, $price, $image, $quantity)
+{
+  echo <<<HEREDOC
+  <div class="product-detail product-cart">
+
+  <div class="product-detail-img">
+    <img src="$image" alt="Product img">
+  </div>
+
+  <div class="product-detail-text">
+    <h2>Name: </h2> <p> $name</p> <br>
+    <h2>Price: </h2> <p> $price$</p><br>
+    <h2>Quantity: </h2> <p>$quantity</p>
+  </div>
+
+
+
+  </div>
+
+
+
+  HEREDOC;
+}
+
+function displayOrders($oid) {
+  echo <<<HEREDOC
+  <div class="product-detail order">
+
+  <div class="orderID">
+  <a href="orderDetail.php?oid=$oid">Order #$oid</a>
+  </div>
+
+  <div class="orderDetail">
+  <a href="orderDetail.php?oid=$oid"> <button type="button" name="button"> Detail</button> </a>
+  </div>
+  </div>
+
+
+
+HEREDOC;
+}
+
 // Delete a product from the cart
 function delete_cart()
 {
@@ -450,6 +482,21 @@ function refresh_cart()
 }
 
 // Check out order
+
+
+function get_list_from_file($filepath)
+{
+  $list = [];
+  $handle = fopen($filepath, 'r');
+  while (!feof($handle)) {
+    $item = fgetcsv($handle);
+    $list[] = $item;
+  }
+  fclose($handle);
+  return $list;
+}
+
+
 function check_out()
 {
   if (isset($_POST['checkout'])) {
@@ -459,17 +506,18 @@ function check_out()
     $address = $_SESSION['address'];
     $orders = get_list_from_file('..\database\orders.db');
     $oid = count($orders) - 1;
+    $hub = strval(random_int(1, 3));
     $order_file = fopen('..\database\orders.db', 'a');
-    $order = array($oid, $uid, $name, $address, 'a');
+    $order = array($oid, $uid, $name, $address,$hub, 'a');
     fputcsv($order_file, $order);
     fclose($order_file);
 
     $order_path = '..\database\distribution-hubs\\';
     if (!fopen($order_path, 'x')) {
-      $order_path .= strval(random_int(1, 3)) . '\\' . strval($uid) . '.db';
+      $order_path .= $hub . '\\' . strval($oid) . '.db';
       $handle = fopen($order_path, 'w');
     } else {
-      $order_path .= strval(random_int(1, 3)) . '\\' . strval($uid) . '.db';
+      $order_path .= $hub . '\\' . strval($oid) . '.db';
       $handle = fopen($order_path, 'w');
       $cart = array('pID', 'quantity');
       fputcsv($handle, $cart);

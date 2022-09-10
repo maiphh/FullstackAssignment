@@ -548,7 +548,7 @@ background: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/e2
   position: absolute;
     top: 50%;
     left: 37%;
-  top: 144px;
+  top: 200px;
   border-radius: 10px;
 }
 
@@ -1178,4 +1178,84 @@ font-size: 12px;
     align-items: center;
     justify-content: center;
   }
+}
+
+/* Order page */
+
+.order-container{
+  display: grid;
+  grid-row-gap: 50px;
+}
+
+.order-container .order {
+    grid-template-rows: 150px;
+    grid-template-columns: 750px 50px;
+
+}
+
+.order .orderID {
+  margin-left: 50px;
+
+}
+
+.orderID a{
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: black;
+  font-size: 20px;
+}
+
+.orderDetail button {
+  background-color: #1949F4;
+  color: white;
+  text-decoration: none;
+font-size: 12px;
+  font-weight: 600;
+  padding: 8px 50px;
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  border-radius: 30px;
+    text-transform: uppercase;
+}
+
+
+@media (max-width:1600px) {
+  .order-container .order {
+      grid-template-columns: 650px 150px;
+
+  }
+}
+
+@media (max-width:1023px) {
+.order-container .order {
+  grid-template-columns: 600px;
+  grid-auto-rows: 100px 100px;
+  height: 300px;
+
+}
+.orderDetail button{
+  margin-left: 80px;
+}
+}
+
+
+/* OrderID */
+.orderInfo h2{
+  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.orderInfo p span {
+  font-weight: 600;
+  font-size: 20px;
+  margin-right: 20px;
+
+}
+
+.orderInfo p {
+  font-size: 20px;
 }

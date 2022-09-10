@@ -30,8 +30,8 @@ if_in_cart();
       <?php
       if (isset($_SESSION['type'])) {
         if ($_SESSION['type'] == 'C') {
-          echo '<li><a href="myAccount.php">My Account</a></li>';
           echo '<li onclick="pushToUrl()"><a href=#>Shopping Cart</a></li>';
+          echo '<li><a href="myAccount.php">My Account</a></li>';
           echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
         } elseif ($_SESSION['type'] == 'V') {
           echo '<li><a href="viewProduct.php">View My Product</a></li>';
@@ -39,6 +39,7 @@ if_in_cart();
           echo '<li><a href="myAccount.php">My Account</a></li>';
           echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
         } elseif ($_SESSION['type'] == 'S') {
+          echo '<li><a href="order.php">Order List</a></li>';
           echo '<li><a href="myAccount.php">My Account</a></li>';
           echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
         }
