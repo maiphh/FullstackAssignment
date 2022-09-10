@@ -146,16 +146,16 @@ function createShipper($id, $username, $pwd, $profilepic, $hub)
   fputcsv($handle, $new_user);
 }
 
-function readUsers()
+function get_list_from_file($filepath)
 {
-  $users = [];
-  $handle = fopen('..\..\database\accounts.db', 'r');
+  $list = [];
+  $handle = fopen($filepath, 'r');
   while (!feof($handle)) {
-    $user = fgetcsv($handle);
-    $users[] = $user;
+    $item = fgetcsv($handle);
+    $list[] = $item;
   }
   fclose($handle);
-  return $users;
+  return $list;
 }
 
 function readProducts()
@@ -418,17 +418,68 @@ function delete_cart()
 function clear_cart()
 {
   if (isset($_POST['clear'])) {
-    echo print_r('wor');
     $_SESSION['cart'] = [];
   }
 }
 
+// Check if current page is a cart page
 function if_in_cart()
 {
   $haystack = $_SERVER['PHP_SELF'];
   $needle = "cart.php";
   if (!strpos($haystack, $needle)) {
     $_SESSION['count'] = 0;
+  }
+}
+
+// Refresh cart
+function refresh_cart()
+{
+  if ($_SESSION['count'] == 0) {
+    $_SESSION['cart'] = array();
+    $cartQuantityList = explode(',', $_GET['cartQuantityList']);
+    $cartIdList = explode(',', $_GET['cartIdList']);
+    $i = 0;
+    foreach ($cartIdList as $id) {
+      $_SESSION['cart'][$id] = $cartQuantityList[$i];
+      $i++;
+    }
+    $_SESSION['count'] = 1;
+    header("Refresh:0");
+  }
+}
+
+// Check out order
+function check_out()
+{
+  if (isset($_POST['checkout'])) {
+
+    $uid = $_SESSION['ID'];
+    $name = $_SESSION['username'];
+    $address = $_SESSION['address'];
+    $orders = get_list_from_file('..\database\orders.db');
+    $oid = count($orders) - 1;
+    $order_file = fopen('..\database\orders.db', 'a');
+    $order = array($oid, $uid, $name, $address, 'a');
+    fputcsv($order_file, $order);
+    fclose($order_file);
+
+    $order_path = '..\database\distribution-hubs\\';
+    if (!fopen($order_path, 'x')) {
+      $order_path .= strval(random_int(1, 3)) . '\\' . strval($uid) . '.db';
+      $handle = fopen($order_path, 'w');
+    } else {
+      $order_path .= strval(random_int(1, 3)) . '\\' . strval($uid) . '.db';
+      $handle = fopen($order_path, 'w');
+      $cart = array('pID', 'quantity');
+      fputcsv($handle, $cart);
+    }
+    foreach ($_SESSION['cart'] as $id => $quantity) {
+      $cart = array($id, $quantity);
+      fputcsv($handle, $cart);
+    }
+    fclose($handle);
+    $_SESSION['cart'] = array();
   }
 }
 //----------------------------------------------------------------

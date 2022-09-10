@@ -3,32 +3,29 @@ include_once 'header.php';
 include_once 'includes/functions.inc.php';
 delete_cart();
 clear_cart();
-$products = read_product_cart($_SESSION['cart']);
-if ($_SESSION['count'] == 0) {
-  $cartQuantityList = explode(',', $_GET['cartQuantityList']);
-  $cartIdList = explode(',', $_GET['cartIdList']);
-  $i = 0;
-  foreach ($cartIdList as $id) {
-    $_SESSION['cart'][$id] = $cartQuantityList[$i];
-    $i++;
-  }
-  $_SESSION['count'] = 1;
-  header("Refresh:0");
-}
-
+refresh_cart();
+check_out();
 ?>
 
 
 <div class="main-content">
   <h1>Shopping Cart</h1>
   <?php
-  foreach ($products as $product) {
-    display_product_cart($product['pID'], $product['name'], $product['price'], $product['image'], $_SESSION['cart'][intval($product['pID'])]);
+  if (count($_SESSION['cart']) == 0) {
+  } else {
+    $products = read_product_cart($_SESSION['cart']);
+    foreach ($products as $product) {
+      display_product_cart($product['pID'], $product['name'], $product['price'], $product['image'], $_SESSION['cart'][intval($product['pID'])]);
+    }
   }
   ?>
   <div class="input-btn-container cart-checkout-container">
     <div class="checkout-btn">
-      <button type="button" name="addtocart">Check Out</button>
+      <form action="cart.php" method="post">
+        <input type="hidden" name="checkout" value="$checkout">
+        <!-- <input type="submit" value="Check Out"> -->
+        <button onclick="removeAll()" type="submit" name="checkout">Check Out</button>
+      </form>
     </div>
 
     <div class="cancel-cart">

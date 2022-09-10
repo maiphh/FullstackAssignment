@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
   require_once 'dbh.inc.php';
   require_once 'functions.inc.php';
 
-  $users = readUsers();
+  $users = get_list_from_file('..\..\database\accounts.db');
 
   if (emptyInput($username) !== false) {
     header('location:../login.php?error=emptyUsername');
@@ -39,9 +39,8 @@ if (isset($_POST['submit'])) {
       $_SESSION['baddress'] = $user[6];
       $_SESSION['hub'] = $user[7];
       $_SESSION['type'] = $user[8];
-      $_SESSION['justlogin'] = true;
-      $_SESSION['cart'] = [];
-      $_SESSION['count'] = 0;
+      // $_SESSION['cart'] = [];
+      // $_SESSION['count'] = 0;
       header('location:../index.php');
       exit();
     }
