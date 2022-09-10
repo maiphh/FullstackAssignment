@@ -48,4 +48,13 @@ Account:
 + username: Shipperhub3  password: Shipperhub3!
 
 
-Video URL:
+Video URL: https://rmiteduau-my.sharepoint.com/:v:/g/personal/s3927049_rmit_edu_vn/EaC05NieLLtGoud5i37gOJcBTkIPVQeF-8LimS9oIkWc2Q?e=SB8xJu
+
+
+How to Start :
+
+- start with xampp: start apache sever, open browser and enter localhost, navigate to www folder.
+
+- start with php localhost: open cmd, cd to the project path, enter php -S localhost:8000, open browser, enter localhost:8000/www/index.php
+
+Contribution : Equal

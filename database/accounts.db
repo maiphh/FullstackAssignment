@@ -8,3 +8,4 @@ id,username,pwd,profilepic,address,bname,baddress,hub,type
 7,Vendor12345,$2y$10$hqHRxk5ibI1fM9bySE8KkOULM4eFKbJyz8jvgfpkiezoyO5RsSf8a,"..\database\images\7.jpg",,"Accessory Seller ","999 Nguyen Van Linh, District 7",,V
 8,Customer1234,$2y$10$L8oBkX26LpBc8527ba9c4OcWkQSjSuFXIFdHhQbZ3Nfe1pzE53gT.,"..\database\images\8.jpg","629 Dien Bien Phu, District 1",,,,C
 9,Fullstack1234,$2y$10$olFLao.m2byFMFw2yA1ZYeWkVYa/Yf3a4fTt2t4klMecwXa.RuJ7S,"..\database\images\9.png","ho chi minh city",,,,C
+10,Customer12345,$2y$10$/MbIaXbDxdgv98XM9Tjsve8t/pZFwNZM.WTlcvKFOEH6tsGWBf1MG,"..\database\images\10.jpg",dsadfdsfdsa,,,,C
