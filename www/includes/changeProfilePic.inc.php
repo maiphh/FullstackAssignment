@@ -4,7 +4,7 @@ if (isset($_POST['change'])) {
   if (is_uploaded_file($_FILES['newprofilepic']['tmp_name'])) {
     $profilepic = $_FILES['newprofilepic'];
     require_once 'functions.inc.php';
-    $users = get_list_from_file('accounts.db');
+    $users = get_list_from_file('..\..\database\accounts.db');
     $handle = fopen('..\..\database\accounts.db', 'w');
     foreach ($users as $user) {
       if (isset($user[1])) {
