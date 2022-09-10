@@ -3,10 +3,8 @@ session_start();
 include_once 'includes/functions.inc.php';
 if_in_cart();
 ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

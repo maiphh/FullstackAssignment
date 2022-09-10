@@ -78,7 +78,7 @@ foreach($orderList as $order) {
 fclose($handle);
 header('location:order.php');
 }
-else header('orderDetail.php?oid='.$_GET['oid']);
+// else header('location: orderDetail.php?oid='.$_GET['oid']);
 
 
 if(isset($_POST['cancel'])) {
@@ -96,7 +96,7 @@ foreach($orderList as $order) {
 fclose($handle);
 header('location:order.php');
 }
-else header('orderDetail.php?oid='.$_GET['oid']);
+// else header('location: orderDetail.php?oid='.$_GET['oid']);
 ?>
 <div class="orderInfo">
   <h2>Customer Info</h2>

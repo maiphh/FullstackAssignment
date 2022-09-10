@@ -405,7 +405,7 @@ function displayMyOrder($oid, $status)
   <div class="product-detail order">
 
   <div class="orderID">
-  <a href="orderDetail.php?oid=$oid">Order #$oid</a>
+  <a href="#">Order #$oid</a>
   </div>
 
   <div class="orderDetail">
