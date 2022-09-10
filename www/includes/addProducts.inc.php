@@ -19,7 +19,6 @@ function readProducts() {
   return $products;
 }
 
-
 function uploadProductImage($productpic,$pid) {
   $name = explode('.',$productpic['name']);
   $extension = end($name);
@@ -47,7 +46,6 @@ function uploadProductImage($productpic,$pid) {
         $data['productpic'] = uploadProductImage($_FILES['productpic'],$pID);
         $des = $data['description'] = isset($_POST['description']) ? $_POST['description'] : '';
 
-        // var_dump($data)
         //validate name input
         if (strlen($name) == 0) {
             $error["name"] =  "Please enter name of product.";
@@ -86,4 +84,3 @@ function uploadProductImage($productpic,$pid) {
         header('location:../addproducts.php?msg='.$msg);
 }
 }
-?>

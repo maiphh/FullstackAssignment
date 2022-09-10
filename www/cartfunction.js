@@ -104,23 +104,7 @@ function pushToUrl() {
             return;
         } else {
             window.location.href =
-                "cart.php? cartIdList=" +
-                cart_id_list +
-                "&cartQuantityList=" +
-                cart_quantity_list;
+                "cart.php? cartIdList=" + "&cartQuantityList=";
         }
     }
 }
-
-// funtcion readUserCart() {
-//   ID = localStorage.getItem("id");
-//   if(localStorage.getItem('userCart')!=null){
-//   userCarts = JSON.parse(localStorage.getItem('userCart'));
-//   userCarts.every(function(userCart) {
-//     if(userCart[0]==ID) {
-//       products = userCart[1];
-//       // products = JSON.parse(localStorage.getItem('cart'));
-//       return products;
-//     }})}
-//   }
-// }

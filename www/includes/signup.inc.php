@@ -1,5 +1,4 @@
 <?php
-require_once 'dbh.inc.php';
 require_once 'functions.inc.php';
 $users = get_list_from_file('..\..\database\accounts.db');
 $id = count($users) - 1;

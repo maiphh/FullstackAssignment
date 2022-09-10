@@ -4,7 +4,6 @@ if (isset($_POST['submit'])) {
   $username = $_POST['username'];
   $pwd = $_POST['pwd'];
 
-  require_once 'dbh.inc.php';
   require_once 'functions.inc.php';
 
   $users = get_list_from_file('..\..\database\accounts.db');
@@ -39,8 +38,6 @@ if (isset($_POST['submit'])) {
       $_SESSION['baddress'] = $user[6];
       $_SESSION['hub'] = $user[7];
       $_SESSION['type'] = $user[8];
-      // $_SESSION['cart'] = [];
-      // $_SESSION['count'] = 0;
       header('location:../index.php');
       exit();
     }

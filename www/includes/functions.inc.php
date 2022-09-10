@@ -1,5 +1,10 @@
 <?php
 
+// ----------------------------------------------------------------
+// Account Related Functions
+// ----------------------------------------------------------------
+
+// Return if username is invalid
 function invalidUsername($username)
 {
   if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/", $username)) {
@@ -10,6 +15,7 @@ function invalidUsername($username)
   return $result;
 }
 
+// Return if password is invalid
 function invalidPassword($pwd)
 {
   if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/", $pwd)) {
@@ -20,6 +26,7 @@ function invalidPassword($pwd)
   return $result;
 }
 
+// Returns if the input is invalid
 function invalidInput($input)
 {
   if (strlen(trim($input)) < 5) {
@@ -30,6 +37,7 @@ function invalidInput($input)
   return $result;
 }
 
+// Returns if password match
 function pwdMatch($pwd, $pwdrp)
 {
   if ($pwd !== $pwdrp) {
@@ -40,6 +48,7 @@ function pwdMatch($pwd, $pwdrp)
   return $result;
 }
 
+// Returns if username already exist
 function usernameExist($username)
 {
   $handle = fopen('..\..\database\accounts.db', 'r');
@@ -54,6 +63,7 @@ function usernameExist($username)
   return false;
 }
 
+// Returns if business name already exists
 function bnameExist($bname)
 {
   $handle = fopen('..\..\database\accounts.db', 'r');
@@ -70,6 +80,7 @@ function bnameExist($bname)
   return false;
 }
 
+// Returns if business address already exist
 function baddressExist($baddress)
 {
   $handle = fopen('..\..\database\accounts.db', 'r');
@@ -86,6 +97,7 @@ function baddressExist($baddress)
   return false;
 }
 
+// Upload image as profile picture
 function uploadImage($profilepic, $id)
 {
   $name = explode('.', $profilepic['name']);
@@ -97,6 +109,7 @@ function uploadImage($profilepic, $id)
   return $profilepicLink;
 }
 
+// Creates a customer account
 function createCustomer($id, $username, $pwd, $profilepic, $address)
 {
   $handle = fopen('..\..\database\accounts.db', 'a');
@@ -113,6 +126,7 @@ function createCustomer($id, $username, $pwd, $profilepic, $address)
   fputcsv($handle, $new_user);
 }
 
+// Creates a vendor account
 function createVendor($id, $username, $pwd, $profilepic, $bname, $baddress)
 {
   $handle = fopen('..\..\database\accounts.db', 'a');
@@ -129,7 +143,7 @@ function createVendor($id, $username, $pwd, $profilepic, $bname, $baddress)
   fputcsv($handle, $new_user);
 }
 
-
+// Creates a shipper account
 function createShipper($id, $username, $pwd, $profilepic, $hub)
 {
   $handle = fopen('..\..\database\accounts.db', 'a');
@@ -146,8 +160,11 @@ function createShipper($id, $username, $pwd, $profilepic, $hub)
   fputcsv($handle, $new_user);
 }
 
+// ----------------------------------------------------------------
+// Products Related functions
+// ----------------------------------------------------------------
 
-
+// Read the products from products database and select base on filters
 function readProducts()
 {
   $products = [];
@@ -180,75 +197,7 @@ function readProducts()
   return $products;
 }
 
-function read_filter_products()
-{
-  $products = [];
-  $handle = fopen('..\database\products.db', 'r');
-  $first = fgetcsv($handle);
-  while ($row = fgetcsv($handle)) {
-    $i = 0;
-    $product = [];
-    foreach ($first as $col_name) {
-      $product[$col_name] = $row[$i];
-      $i++;
-    }
-    if ($product != null) {
-      if (isset($_GET['min_price']) && is_numeric($_GET['min_price'])) {
-        if ($product['price'] <= $_GET['min_price']) {
-          continue;
-        }
-      };
-      if (isset($_GET['max_price']) && is_numeric($_GET['max_price'])) {
-        if ($product['price'] >= $_GET['max_price']) {
-          continue;
-        }
-      };
-      if (isset($_GET['name']) && !empty($_GET['name'])) {
-        $haystack = strtolower($product['name']);
-        $needle = strtolower($_GET['name']);
-        if (strpos($haystack, $needle) === false) {
-          continue;
-        }
-      };
-      $products[] = $product;
-    };
-  }
-  fclose($handle);
-  return $products;
-}
-
-
-//
-// function displayProduct($pID, $name, $price, $image)
-// {
-//   echo <<<HEREDOC
-//   <div class="product">
-//
-//   <div class="product-image">
-//     <img src=$image alt="">
-//   </div>
-//
-//     <div class="product-info">
-//
-//       <div class="product-name">
-//       <p>$name</p>
-//       </div>
-//   <div>
-//       <div class="product-price">
-//         <p>$price$</p>
-//       </div>
-//
-//       <form action="index.php" method="post">
-//             <input type="number" name="quantity" value="1" placeholder="1">
-//             <input type="hidden" name="pID" value="$pID">
-//             <input type="submit" value="Add To Cart" class="ti-shopping-cart">
-//       </form>
-//   </div>
-//     </div>
-//   </div>
-//   HEREDOC;
-// }
-
+// Display the products from given information by echoing the html
 function displayProduct($pID, $ID, $name, $price, $image, $des)
 {
   echo <<<HEREDOC
@@ -285,8 +234,7 @@ function displayProduct($pID, $ID, $name, $price, $image, $des)
 HEREDOC;
 }
 
-
-
+// Same as displayProduct but use for a different user type
 function viewProduct($pID, $ID, $name, $price, $image, $des)
 {
   echo <<<HEREDOC
@@ -308,12 +256,26 @@ function viewProduct($pID, $ID, $name, $price, $image, $des)
 HEREDOC;
 }
 
+// Use to empty the input field
 function emptyInput($data)
 {
   if (empty($data)) {
     return true;
   }
   return false;
+}
+
+// Get the list from the file base on given filepath
+function get_list_from_file($filepath)
+{
+  $list = [];
+  $handle = fopen($filepath, 'r');
+  while (!feof($handle)) {
+    $item = fgetcsv($handle);
+    $list[] = $item;
+  }
+  fclose($handle);
+  return $list;
 }
 
 //----------------------------------------------------------------
@@ -418,7 +380,8 @@ function displayOrderDetail($pID, $name, $price, $image, $quantity)
   HEREDOC;
 }
 
-function displayOrders($oid) {
+function displayOrders($oid)
+{
   echo <<<HEREDOC
   <div class="product-detail order">
 
@@ -436,7 +399,8 @@ function displayOrders($oid) {
 HEREDOC;
 }
 
-function displayMyOrder($oid,$status) {
+function displayMyOrder($oid, $status)
+{
   echo <<<HEREDOC
   <div class="product-detail order">
 
@@ -486,7 +450,10 @@ function if_in_cart()
 function refresh_cart()
 {
   if ($_SESSION['count'] == 0) {
-    $_SESSION['cart'] = array();
+    $_SESSION['cart'] = [];
+    if ($_GET['cartQuantityList'] == "" && $_GET['cartIdList'] == "") {
+      return;
+    }
     $cartQuantityList = explode(',', $_GET['cartQuantityList']);
     $cartIdList = explode(',', $_GET['cartIdList']);
     $i = 0;
@@ -499,22 +466,8 @@ function refresh_cart()
   }
 }
 
+
 // Check out order
-
-
-function get_list_from_file($filepath)
-{
-  $list = [];
-  $handle = fopen($filepath, 'r');
-  while (!feof($handle)) {
-    $item = fgetcsv($handle);
-    $list[] = $item;
-  }
-  fclose($handle);
-  return $list;
-}
-
-
 function check_out()
 {
   if (isset($_POST['checkout'])) {
@@ -526,7 +479,7 @@ function check_out()
     $oid = count($orders) - 1;
     $hub = strval(random_int(1, 3));
     $order_file = fopen('..\database\orders.db', 'a');
-    $order = array($oid, $uid, $name, $address,$hub, 'a');
+    $order = array($oid, $uid, $name, $address, $hub, 'a');
     fputcsv($order_file, $order);
     fclose($order_file);
 
@@ -545,7 +498,7 @@ function check_out()
       fputcsv($handle, $cart);
     }
     fclose($handle);
-    $_SESSION['cart'] = array();
+    $_SESSION['cart'] = [];
   }
 }
 //----------------------------------------------------------------
