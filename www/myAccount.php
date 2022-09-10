@@ -6,7 +6,7 @@ require_once 'header.php';
 
   <div class="myAccount-form-container">
     <div class="ma-profilepic">
-      <img src="<?= $_SESSION['profilepic'] ?>" alt="">
+      <img src="<?= $_SESSION['profilepic'] ?>" alt="Profil Pic">
       <div class="ma-username">
         <p><?= $_SESSION['username'] ?></p>
       </div>

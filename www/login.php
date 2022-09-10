@@ -15,7 +15,7 @@ include_once 'header.php';
    </div>
    <div class="submit-container">
 
-  <span><a href="#">Forgotten password?</a></span>
+  <span><a href="commingSoon.php">Forgotten password?</a></span>
    <button type="submit" class="" name="submit">Sign in</button>
 
  </div>

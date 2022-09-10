@@ -44,6 +44,8 @@
             </div>
         </div>
     </div>
-    <script src="validateProduct.js"></script>
-    </body>
-</html>
+  </div>
+    <?php
+    // Footer
+    include_once 'footer.php';
+    ?>

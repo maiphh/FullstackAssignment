@@ -31,6 +31,7 @@ if_in_cart();
       if (isset($_SESSION['type'])) {
         if ($_SESSION['type'] == 'C') {
           echo '<li onclick="pushToUrl()"><a href=#>Shopping Cart</a></li>';
+          echo '<li><a href="myOrder.php">My Order</a></li>';
           echo '<li><a href="myAccount.php">My Account</a></li>';
           echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
         } elseif ($_SESSION['type'] == 'V') {

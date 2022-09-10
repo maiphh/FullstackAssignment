@@ -82,18 +82,7 @@ include_once 'header.php';
 
 
 
-    <footer>
-    <div class="footer-nav">
-      <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms</a></li>
-        <li><a href="#">Copyright</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </div>
-
-
-    </footer>
-  </body>
-</html>
+<?php
+// Footer
+include_once 'footer.php';
+?>

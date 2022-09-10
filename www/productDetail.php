@@ -38,7 +38,7 @@ else {
   echo '<button type="button" name="addtocart">Add to Cart</button>';
 }
  ?>
-
+</div>
  </div>
  <?php
  // Footer

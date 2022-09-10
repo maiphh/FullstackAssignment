@@ -436,6 +436,24 @@ function displayOrders($oid) {
 HEREDOC;
 }
 
+function displayMyOrder($oid,$status) {
+  echo <<<HEREDOC
+  <div class="product-detail order">
+
+  <div class="orderID">
+  <a href="orderDetail.php?oid=$oid">Order #$oid</a>
+  </div>
+
+  <div class="orderDetail">
+  <p>$status</p>
+  </div>
+  </div>
+
+
+
+HEREDOC;
+}
+
 // Delete a product from the cart
 function delete_cart()
 {

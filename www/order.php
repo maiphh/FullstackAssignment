@@ -7,6 +7,7 @@ if($_SESSION['type']=='S') {
 
 $orders = get_list_from_file('..\database\orders.db');
 
+
 ?>
 
 <div class="main-content">
@@ -22,6 +23,7 @@ foreach($orders as $order) {
   if($order!=null){
   if($order[4]==1 && $order[5]=='a') {
     displayOrders($order[0]);
+    $count=1;
   }
 }
 }

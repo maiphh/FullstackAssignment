@@ -8,17 +8,17 @@ include_once 'header.php'
 <div class="account-type-detail-container">
 
 <div class="account">
-  <a href="signup.customers.php"><img src="asset\customer.png" alt=""></a>
+  <a href="signup.customers.php"><img src="asset\customer.png" alt="Customer"></a>
   <p>Customer</p>
 </div>
 
 <div class="account">
-  <a href="signup.vendors.php"><img src="asset\vendor.png" alt=""></a>
+  <a href="signup.vendors.php"><img src="asset\vendor.png" alt="Vendor"></a>
   <p>Vendors</p>
 </div>
 
 <div class="account">
-  <a href="signup.shippers.php"><img src="asset\shipper.png" alt=""></a>
+  <a href="signup.shippers.php"><img src="asset\shipper.png" alt="Shipper"></a>
   <p>Shippers</p>
 </div>
 </div>

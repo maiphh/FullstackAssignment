@@ -1,8 +1,9 @@
 id,username,pwd,profilepic,address,bname,baddress,hub,type
-1,fullstack123,$2y$10$lKS1adDTH7C5zWiOpz.f3OfLdUG9up4qqHiQQrOdsmSL2DySZtvfu,"..\database\images\1.png",dsadsadsa,,,,C
-2,cho12345,$2y$10$vwCFkZrYBucRuSjOdi3blufqeIqlQmQ9alCoiPGI4vhx4R1CM36yK,"..\database\images\2.png",,dsadsa,dsadssad,,V
-3,fullstack1234,$2y$10$xJXOzMhWESXu2xcP6.q0Sup5GTRVMx8GBb2F9ynpkkX.onAhI0JKC,"..\database\images\3.jpg",,,,hub1,S
-4,fullstack12345,$2y$10$/xgQitpFhPYTrbYJ0ky/E.VJdGv7mEgUEiI54szpa1tkWloijR/ky,"..\database\images\4.jpg",,dsadsad,dsadsadsa,,V
-5,Fullstack1234,$2y$10$wGl1/hRRfs7moyAiFvImZ.CYwqLh2HmKBe2EndrKBWNGe9naA3Jwa,"..\database\images\5.png","asdijfklj kjalkfjd",,,,C
-6,Fullstack123,$2y$10$tQgAjRMzeDYJh2r8IV7DeOYBAyfYpjhOO1EIOAzX5BPr97G7APrXO,"..\database\images\6.png",ádfsdff,,,,C
-7,fullstack123456,$2y$10$9.QcS5PJnk60wCl3u7d6MeS2PikH6hTEtZDYFHiVthZhMXfpr6ZB6,"..\database\images\default.png",,fdasfads,fdasfdasf,,V
+1,Customer123,$2y$10$o0mnd/P7h9.S68LYSS/p8OMZmO5wD7/nKyRtUlPUJjrg5ChmJLygy,"..\database\images\1.jpg","195 Nguyen Van Linh, District 7",,,,C
+2,Vendor123,$2y$10$SpEEfizDbAUNsm4H7Xr1huXqAdEBf23eY76phz0lpAmM16xbxM1Nm,"..\database\images\2.png",,SamSung,"146 SamSung Street, NewYork",,V
+3,Shipperhub1,$2y$10$og3.e1B1.pZo7Wxb.Hke9eHZhBP7YJnDl9BYgmznFYPbgACiZjMYG,"..\database\images\3.png",,,,hub1,S
+4,Shipperhub2,$2y$10$odE1BPVKb2yHVUjR5fud0e2mLQXX5m56DhvTkRBMnGCpG8U6eNSMm,"..\database\images\4.png",,,,hub2,S
+5,Shipperhub3,$2y$10$Mqas7VxYqUFWnyj5ZbHL0ubjHMZU3j3B8Hyt5jw6x6JAGD86VhvC6,"..\database\images\5.png",,,,hub3,S
+6,Vendor1234,$2y$10$1YYjw2sJrcW2mmexr7S75.e7xjv1u6eR06qi4occePZiDa7CWZqdW,"..\database\images\6.jpg",,CellPhoneS,"1654 Tran Quang Khai, District 1",,V
+7,Vendor12345,$2y$10$hqHRxk5ibI1fM9bySE8KkOULM4eFKbJyz8jvgfpkiezoyO5RsSf8a,"..\database\images\7.jpg",,"Accessory Seller ","999 Nguyen Van Linh, District 7",,V
+8,Customer1234,$2y$10$L8oBkX26LpBc8527ba9c4OcWkQSjSuFXIFdHhQbZ3Nfe1pzE53gT.,"..\database\images\8.jpg","629 Dien Bien Phu, District 1",,,,C

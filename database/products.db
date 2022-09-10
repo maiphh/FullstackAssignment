@@ -1,8 +1,10 @@
 pID,ID,name,price,image,description
-1,2,iphone12,599,"..\database\product-images\test.jpg",This is an Iphone
-2,3,iphone2,699,"..\database\product-images\test.jpg",This is an Iphone
-3,4,iphone13,599,"..\database\product-images\test.jpg",This is an Iphone
-4,1,iphone7,599,"..\database\product-images\test.jpg",This is an Iphone
-5,2,iphone4,599,"..\database\product-images\test.jpg",This is an Iphone
-6,3,iphone1,5999,"..\database\product-images\test.jpg",This is an Iphone
-7,4,"Phu Maiiiii",100,"..\database\product-images\7.png",dsadsadad
+1,2,iphone twelve,599,"..\database\product-images\test.jpg",This is an Iphone
+2,2,"NEW IPHONE",9999,"..\database\product-images\2.jpg","Newest Iphone"
+3,2,"SamSung ABC",699,"..\database\product-images\3.jpg","SamSung very good"
+4,2,"SamSung Fold",5999,"..\database\product-images\4.jpg","It can fold"
+5,6,"NOKIA BRICK",999,"..\database\product-images\5.webp","Harder than a brick"
+6,6,"NEW GEN NOKIA",9999,"..\database\product-images\6.jpg","Not a brick anymore"
+7,7,"AIRPOD PRO",999,"..\database\product-images\7.jpg","New Airpod"
+8,7,"AIRPOD ONE",399,"..\database\product-images\8.jpg","Old airpods"
+9,7,"Charger Cable",100,"..\database\product-images\9.jpg","Use to charge"

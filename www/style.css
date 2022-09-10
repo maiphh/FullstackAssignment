@@ -769,6 +769,8 @@ align-items: center;
 .product-detail-img img {
 height: 300px;
 width: 300px;
+margin-left: 5px;
+border-radius: 10px;
 }
 
 .product-detail-text h2,
@@ -831,6 +833,10 @@ width: 300px;
   grid-row-end: 3;
 }
 
+.product-detail-img img {
+margin-left: 0;
+}
+
 .input-btn-container{
   display: grid;
 width: 300px;
@@ -848,6 +854,7 @@ justify-content: center;
 
 
 .addpd-content {
+  height: 700px;
   margin-top: 100px;
   align-items: center;
   justify-content: center;
@@ -1258,4 +1265,23 @@ font-size: 12px;
 
 .orderInfo p {
   font-size: 20px;
+}
+
+.cms {
+  height: 600px;
+}
+
+/* My order */
+
+.orderDetail p {
+  margin-top: 10px;
+  font-weight: 700;
+  color: #1949F4;
+}
+
+@media (max-width:1023px) {
+  .orderDetail p {
+  margin-left: 120px;
+
+  }
 }

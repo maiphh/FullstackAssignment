@@ -2,10 +2,10 @@
   <div class="footer wrapper">
     <div class="footer-nav">
   <ul>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Privacy Policy</a></li>
-    <li><a href="#">Terms</a></li>
-    <li><a href="#">Copyright</a></li>
+    <li><a href="commingSoon.php">About Us</a></li>
+    <li><a href="commingSoon.php">Privacy Policy</a></li>
+    <li><a href="commingSoon.php">Terms</a></li>
+    <li><a href="commingSoon.php">Copyright</a></li>
     <li><a href="contact.php">Contact Us</a></li>
   </ul>
 </div>
