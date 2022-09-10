@@ -1,5 +1,17 @@
 <?php
 include_once 'header.php';
+
+?>
+
+<div class="signup-container">
+
+<div class="form-container">
+<script src="validate.js"></script>
+<form action="includes/signup.inc.php" method="post" enctype="multipart/form-data" id="signup-form"  onsubmit="return checkC()">
+
+<?php
+
+
  include_once 'signupform.php';
  ?>
 

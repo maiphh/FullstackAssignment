@@ -7,7 +7,7 @@ include_once 'header.php';
 
  <div class="form-container vendor-container">
 
- <form action="includes/signup.inc.php" method="post" enctype="multipart/form-data">
+ <form action="includes/signup.inc.php" method="post" enctype="multipart/form-data" onsubmit="return checkV()">
    <div class="signupinput">
      <input type="text"  name="username" placeholder="Username">
    </div>
@@ -38,3 +38,4 @@ include_once 'header.php';
 <div class="signin">
   <a href="login.php">Sign in</a>
 </div>
+<script src="validate.js"></script>
