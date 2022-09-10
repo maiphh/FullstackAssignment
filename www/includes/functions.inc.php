@@ -274,7 +274,7 @@ function displayProduct($pID, $ID, $name, $price, $image, $des)
         <input type="number" name="quantity" value="1" placeholder="1" id = "quantity$pID">
         <input type="hidden" name="pID" value="$pID">
         <div class="product-addtocart ">
-          <button onclick = "addToCart($pID,$ID,'$name',$price,'$image','$des',getQuantity($pID)) " ><i class="ti-shopping-cart" onclick="popUp()"></i></button>
+          <button class="btn-hover" onclick = "addToCart($pID,$ID,'$name',$price,'$image','$des',getQuantity($pID)) " ><i class="ti-shopping-cart" onclick="popUp()"></i></button>
         </div>
 </div>
 
@@ -383,7 +383,7 @@ function display_product_cart($pID, $name, $price, $image, $quantity)
 
   <div class = "delete-btn input-btn-container">
   <form method="post" action="cart.php" class="cart-btn">
-  <input onclick="removeFromCart($pID)" type="submit" value="Remove">
+  <input class ="btn-hover" onclick="removeFromCart($pID)" type="submit" value="Remove">
   <input type="hidden" name="pID" value="$pID">
   </form>
   </div>
@@ -427,7 +427,7 @@ function displayOrders($oid) {
   </div>
 
   <div class="orderDetail">
-  <a href="orderDetail.php?oid=$oid"> <button type="button" name="button"> Detail</button> </a>
+  <a href="orderDetail.php?oid=$oid"> <button class="btn-hover" type="button" name="button"> Detail</button> </a>
   </div>
   </div>
 

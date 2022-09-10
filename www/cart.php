@@ -24,14 +24,14 @@ check_out();
         <form action="cart.php" method="post">
           <input type="hidden" name="checkout" value="checkout">
           <!-- <input type="submit" value="Check Out"> -->
-          <button onclick="removeAll()" type="submit" name="checkout">Check Out</button>
+          <button class="btn-hover" onclick="removeAll()" type="submit" name="checkout">Check Out</button>
         </form>
       </div>
 
       <div class="cancel-cart">
         <form action="cart.php" method="post">
           <input type="hidden" name="clear">
-          <input onclick="removeAll()" type="submit" value="Remove All">
+          <input class="btn-hover" onclick="removeAll()" type="submit" value="Remove All">
         </form>
       </div>
     </div>

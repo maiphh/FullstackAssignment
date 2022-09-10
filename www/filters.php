@@ -15,7 +15,7 @@
 
 
         <div class="filter-btn">
-            <input type="submit" / value="Filter">
+            <input class="btn-hover" type="submit" / value="Filter">
         </div>
     </form>
 </div>
