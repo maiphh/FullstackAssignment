@@ -44,7 +44,8 @@ require_once 'header.php';
     ?>
   </div>
 </div>
-
+</div>
+</div>
 <?php
 // Include the footer
 include_once 'footer.php';

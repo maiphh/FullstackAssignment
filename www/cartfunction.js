@@ -34,7 +34,6 @@ function removeFromCart(pID) {
                 localStorage.getItem(String(current_uid))
             );
             storedcart.forEach(function (item) {
-                window.alert(item);
                 if (item[0] == pID) {
                     storedcart.splice(storedcart.indexOf(item), 1);
                     localStorage.setItem(

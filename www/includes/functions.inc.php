@@ -284,7 +284,7 @@ function displayProduct($pID, $ID, $name, $price, $image, $des)
         <input type="number" name="quantity" value="1" placeholder="1" id = "quantity$pID">
         <input type="hidden" name="pID" value="$pID">
         <div class="product-addtocart ">
-          <button onclick = "addToCart($pID,$ID,'$name',$price,'$image','$des',getQuantity($pID))"><i class="ti-shopping-cart"></i></button>
+          <button onclick = "addToCart($pID,$ID,'$name',$price,'$image','$des',getQuantity($pID)) " ><i class="ti-shopping-cart" onclick="popUp()"></i></button>
         </div>
 </div>
 
@@ -425,11 +425,9 @@ function clear_cart()
 
 function if_in_cart()
 {
-  echo print_r($_SESSION['count']);
   $haystack = $_SERVER['PHP_SELF'];
   $needle = "cart.php";
   if (!strpos($haystack, $needle)) {
-    echo 'not cart';
     $_SESSION['count'] = 0;
   }
 }

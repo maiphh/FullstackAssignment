@@ -10,10 +10,12 @@ if ($_SESSION['count'] == 0) {
   $i = 0;
   foreach ($cartIdList as $id) {
     $_SESSION['cart'][$id] = $cartQuantityList[$i];
+    $i++;
   }
   $_SESSION['count'] = 1;
   header("Refresh:0");
 }
+
 ?>
 
 

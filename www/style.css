@@ -144,6 +144,107 @@ nav ul li a:hover {
 }
 /* End of Nav */
 
+
+/* Noti */
+/* body{
+  overflow: hidden;
+} */
+
+.noti {
+  position: fixed;
+  top: 100px;
+  right: 25px;
+  border-radius: 30px;
+  background: #ffffff;
+  padding: 20px 35px 20px 25px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  border-left: 6px solid #1949F4;
+  width: 300px;
+  overflow: hidden;
+  transform: translateX(calc(100% + 30px));
+  transition: all 0.5s cubic-bezier(0.68,-0.55,0.265,1.35);
+}
+
+.noti.active {
+  transform: translateX(0%);
+}
+.noti-content{
+  display: flex;
+  align-items: center;
+}
+
+.noti-content .ti-check {
+  height: 35px;
+  width: 35px;
+  background-color: #1949F4;
+  font-size: 20px;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noti-content .message {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.message .text {
+font-size: 20px;
+opacity: 0.7;
+
+}
+
+.message .text-1 {
+  font-weight: 600;
+  color: black;
+  opacity: 1;
+}
+
+.noti .close {
+  position: absolute;
+  top:10px;
+  right: 15px;
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+
+}
+
+.noti .close:hover{
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.noti .progress {
+  position: absolute;
+  bottom: 0;
+  height: 5px;
+  width: 100%;
+  left: 0;
+  background: #ddd;
+}
+.progress.active:before{
+  animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+  100%{
+    right: 100%;
+  }
+
+}
+.noti .progress:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+  height: 100%;
+  width: 100%;
+  background-color: #1949F4;
+}
 /* Signin */
 .signin-container {
   margin-top: 80px;
@@ -530,7 +631,7 @@ border-bottom-right-radius: 30px;
 }
 
 .main-content {
-  margin-top: 50px;
+  margin-top: 125px;
   margin-left: 25%;
 }
 
@@ -971,6 +1072,8 @@ font-size: 12px;
     margin: 0 5px;
 }
 }
+
+
 /* Contact Page */
 .contact {
   margin-top: 80px;
@@ -1074,90 +1177,5 @@ font-size: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-}
-
-/* Index  */
-.banner {
-  background: url('https://bdistore.com.br/wp-content/uploads/2019/02/banner_2-iXRhome-1600x669.jpg?fbclid=IwAR3gDtlUMU-SNB0gvuLZIbmMP_tV6O5XYMjQl780AnoM6vXek73y6xQULJY') no-repeat center/cover;
-  height: 700px;
-  margin-top: 80px;
-}
-
-.main-content {
-  margin-top: 50px;
-  margin-left: 25%;
-}
-
-.main-content h1 {
-  text-transform: uppercase;
-  font-weight: bolder;
-  margin-bottom: 50px;
-}
-
-.product-display{
-  display: grid;
-  grid-template-columns: auto auto auto;
-}
-
-.product-display .product .product-image {
-  height: 300px;
-  width: 300px;
-  background-color: grey;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.product-display .product .product-image img {
-  height: 300px;
-  border-radius: 10px;
-
-}
-
-.product-display .product .product-name p{
-  font-size: 20px;
-  font-weight: bolder;
-  text-transform: uppercase;
-
-}
-
-.product-display .product .product-price p {
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.product-display .product .product-price{
-  display: inline-block;
-}
-
-.product-display .product .product-addtocart {
-margin-left: 200px;
-display: inline-block;
-width: 30px;
-height: 30px;
-background-color: black;
-border-radius: 3px;
-text-align: center;
-}
-
-.product-display .product .product-addtocart a {
-font-size: 20px;
-text-decoration: none;
-color: white;
-
-}
-
-@media (max-width:1023px) {
-  .product-display{
-    grid-template-columns: auto auto;
-  }
-}
-
-@media (max-width:767px) {
-  .product-display{
-    grid-template-columns: auto;
   }
 }

@@ -25,7 +25,7 @@ if (isset($_SESSION['type'])) {
   if($_SESSION['type']=='C') {
     echo <<<HEREDOC
     <div>
-    <button onclick = "addToCart({$_GET["pID"]},{$_GET["ID"]},'{$_GET['name']}',{$_GET['price']},'{$_GET['image']}','{$_GET['des']}',getQuantity({$_GET["pID"]}))">Add to Cart </button>
+    <button onclick = "addToCart({$_GET["pID"]},{$_GET["ID"]},'{$_GET['name']}',{$_GET['price']},'{$_GET['image']}','{$_GET['des']}',getQuantity({$_GET["pID"]}))" ><i onclick="popUp()">Add to Cart</i> </button>
     </div>
     <div class="quantity-input signupinput float-r">
             <input type="number" name="quantity" value="1" placeholder="1" id = "quantity{$_GET["pID"]}">
@@ -40,4 +40,7 @@ else {
  ?>
 
  </div>
- <script src="cartfunction.js"></script>
+ <?php
+ // Footer
+ include_once 'footer.php';
+ ?>
