@@ -104,10 +104,7 @@ function pushToUrl() {
             return;
         } else {
             window.location.href =
-                "cart.php? cartIdList=" +
-                cart_id_list +
-                "&cartQuantityList=" +
-                cart_quantity_list;
+                "cart.php? cartIdList=" + "&cartQuantityList=";
         }
     }
 }

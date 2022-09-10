@@ -450,7 +450,10 @@ function if_in_cart()
 function refresh_cart()
 {
   if ($_SESSION['count'] == 0) {
-    $_SESSION['cart'] = array();
+    $_SESSION['cart'] = [];
+    if ($_GET['cartQuantityList'] == "" && $_GET['cartIdList'] == "") {
+      return;
+    }
     $cartQuantityList = explode(',', $_GET['cartQuantityList']);
     $cartIdList = explode(',', $_GET['cartIdList']);
     $i = 0;
@@ -495,7 +498,7 @@ function check_out()
       fputcsv($handle, $cart);
     }
     fclose($handle);
-    $_SESSION['cart'] = array();
+    $_SESSION['cart'] = [];
   }
 }
 //----------------------------------------------------------------
