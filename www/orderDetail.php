@@ -110,14 +110,14 @@ else header('orderDetail.php?oid='.$_GET['oid']);
     <form action="orderDetail.php?oid=<?=$_GET['oid']?>" method="post">
       <input type="hidden" name="ship" value="$checkout">
       <!-- <input type="submit" value="Check Out"> -->
-      <button onclick="" type="submit" name="ship">Ship</button>
+      <button class="btn-hover" onclick="" type="submit" name="ship">Ship</button>
     </form>
   </div>
 
   <div class="cancel-cart">
     <form action="orderDetail.php?oid=<?=$_GET['oid']?>" method="post">
       <input type="hidden" name="cancel">
-      <input onclick="" type="submit" value="Cancel">
+      <input class="btn-hover" onclick="" type="submit" value="Cancel">
     </form>
   </div>
 </div>

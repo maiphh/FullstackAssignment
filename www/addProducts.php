@@ -32,7 +32,7 @@
 
 
             <div class="form-button">
-              <button type="submit" name="addproduct" id='submit'>Add Product</button>
+              <button class="btn-hover" type="submit" name="addproduct" id='submit'>Add Product</button>
             </div>
             <p>
               <?php
