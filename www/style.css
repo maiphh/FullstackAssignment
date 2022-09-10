@@ -1076,3 +1076,88 @@ font-size: 12px;
     justify-content: center;
   }
 }
+
+/* Index  */
+.banner {
+  background: url('https://bdistore.com.br/wp-content/uploads/2019/02/banner_2-iXRhome-1600x669.jpg?fbclid=IwAR3gDtlUMU-SNB0gvuLZIbmMP_tV6O5XYMjQl780AnoM6vXek73y6xQULJY') no-repeat center/cover;
+  height: 700px;
+  margin-top: 80px;
+}
+
+.main-content {
+  margin-top: 50px;
+  margin-left: 25%;
+}
+
+.main-content h1 {
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-bottom: 50px;
+}
+
+.product-display{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.product-display .product .product-image {
+  height: 300px;
+  width: 300px;
+  background-color: grey;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.product-display .product .product-image img {
+  height: 300px;
+  border-radius: 10px;
+
+}
+
+.product-display .product .product-name p{
+  font-size: 20px;
+  font-weight: bolder;
+  text-transform: uppercase;
+
+}
+
+.product-display .product .product-price p {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.product-display .product .product-price{
+  display: inline-block;
+}
+
+.product-display .product .product-addtocart {
+margin-left: 200px;
+display: inline-block;
+width: 30px;
+height: 30px;
+background-color: black;
+border-radius: 3px;
+text-align: center;
+}
+
+.product-display .product .product-addtocart a {
+font-size: 20px;
+text-decoration: none;
+color: white;
+
+}
+
+@media (max-width:1023px) {
+  .product-display{
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width:767px) {
+  .product-display{
+    grid-template-columns: auto;
+  }
+}
