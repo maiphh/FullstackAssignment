@@ -465,10 +465,11 @@ function check_out()
     fclose($order_file);
 
     $order_path = '..\database\distribution-hubs\\';
-    $order_path .= strval(random_int(1, 3)) . '\\' . strval($uid) . '.db';
     if (!fopen($order_path, 'x')) {
-      $handle = fopen($order_path, 'a');
+      $order_path .= strval(random_int(1, 3)) . '\\' . strval($uid) . '.db';
+      $handle = fopen($order_path, 'w');
     } else {
+      $order_path .= strval(random_int(1, 3)) . '\\' . strval($uid) . '.db';
       $handle = fopen($order_path, 'w');
       $cart = array('pID', 'quantity');
       fputcsv($handle, $cart);

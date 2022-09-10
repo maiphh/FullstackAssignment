@@ -5,39 +5,6 @@ delete_cart();
 clear_cart();
 refresh_cart();
 check_out();
-// if ($_SESSION['count'] == 0) {
-//   $_SESSION['cart'] = array();
-//   $cartQuantityList = explode(',', $_GET['cartQuantityList']);
-//   $cartIdList = explode(',', $_GET['cartIdList']);
-//   $i = 0;
-//   foreach ($cartIdList as $id) {
-//     $_SESSION['cart'][$id] = $cartQuantityList[$i];
-//     $i++;
-//   }
-//   $_SESSION['count'] = 1;
-//   header("Refresh:0");
-// }
-// if (isset($_POST['checkout'])) {
-
-//   $handle = fopen('..\database\distribution-hubs\1\5.db', 'w');
-//   $uid = $_SESSION['ID'];
-//   $name = $_SESSION['bname'];
-//   $address = $_SESSION['address'];
-//   $orders = get_list_from_file('..\database\orders.db');
-//   $oid = count($orders) - 1;
-//   $order_file = fopen('..\database\orders.db', 'a');
-//   $order = array($oid, $uid, $name, $address, 'y');
-//   fputcsv($order_file, $order);
-//   fclose($order_file);
-
-//   $cart = array('pID', 'quantity');
-//   foreach ($_SESSION['cart'] as $id => $quantity) {
-//     fputcsv($handle, $cart);
-//     $cart = array($id, $quantity);
-//   }
-//   fclose($handle);
-//   $_SESSION['cart'] = array();
-// }
 ?>
 
 
